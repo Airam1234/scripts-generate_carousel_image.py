@@ -1,0 +1,6 @@
+# Local working symlink to the skill's assets (absolute target, machine-specific)
+work/assets
+
+# Empty runtime dirs created by scripts/setup.sh
+logs/
+inbox/

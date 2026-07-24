@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>CoreEd Employer Update, July 2026</title>
+<style>
+@font-face{font-family:'Nunito';src:url('assets/fonts/Nunito[wght].ttf') format('truetype');font-weight:200 1000;font-style:normal;}
+@font-face{font-family:'Nunito';src:url('assets/fonts/Nunito-Italic[wght].ttf') format('truetype');font-weight:200 1000;font-style:italic;}
+@font-face{font-family:'Rubik';src:url('assets/fonts/Rubik[wght].ttf') format('truetype');font-weight:300 900;font-style:normal;}
+@font-face{font-family:'Rubik';src:url('assets/fonts/Rubik-Italic[wght].ttf') format('truetype');font-weight:300 900;font-style:italic;}
+
+:root{
+  --navy:#232b50;
+  --wizard:#0073d9;
+  --tangerine:#f57d21;
+  --green:#2e8c57;
+  --ink:#2f3542;
+  --muted:#5b6472;
+  --rule:#dfe3ea;
+  --tintg:#eaf4ee;
+  --tintb:#e8f1fc;
+  --tinto:#fdf0e4;
+  --tintn:#eef0f6;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Rubik',Arial,sans-serif;
+  color:var(--ink);
+  font-size:9.5pt;
+  line-height:1.48;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+.page{
+  width:210mm;
+  height:272mm;
+  position:relative;
+  overflow:hidden;
+  page-break-after:always;
+}
+.page:last-child{page-break-after:auto;}
+.pad{padding:0 16mm;}
+
+/* ---------- masthead ---------- */
+.masthead{
+  background:var(--navy);
+  color:#fff;
+  padding:11mm 16mm 9mm 16mm;
+  position:relative;
+  margin-bottom:7mm;
+}
+.masthead .ring{
+  position:absolute;right:-26mm;top:-34mm;width:78mm;height:78mm;
+  border:11mm solid rgba(255,255,255,0.05);border-radius:50%;
+}
+.mast-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10mm;}
+.mast-logo{height:11mm;}
+.eyebrow{
+  font-family:'Nunito',Arial,sans-serif;font-weight:800;
+  font-size:8pt;letter-spacing:.16em;color:#7fd3a2;margin:0 0 2mm 0;
+}
+h1{
+  font-family:'Nunito',Arial,sans-serif;font-weight:800;
+  font-size:26pt;line-height:1.06;margin:0;color:#fff;letter-spacing:-.005em;
+}
+.mast-sub{margin:3mm 0 0 0;font-size:9.4pt;color:#c3cbdd;max-width:120mm;}
+
+/* running header for pages 2-4 */
+.runhead{
+  background:var(--navy);color:#fff;
+  padding:5mm 16mm;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:7mm;
+}
+.runhead .rh-title{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:11.5pt;}
+.runhead .rh-logo{height:7.5mm;}
+
+/* ---------- sections ---------- */
+h2{
+  font-family:'Nunito',Arial,sans-serif;font-weight:800;
+  font-size:15pt;color:var(--navy);margin:0 0 1.5mm 0;line-height:1.15;
+}
+h2 .num{
+  display:inline-block;min-width:7mm;height:7mm;line-height:7mm;text-align:center;
+  background:var(--green);color:#fff;border-radius:2mm;font-size:9.5pt;margin-right:2.5mm;
+  vertical-align:2px;
+}
+h3{
+  font-family:'Nunito',Arial,sans-serif;font-weight:800;
+  font-size:10.5pt;color:var(--navy);margin:4mm 0 1.5mm 0;
+}
+.section{margin-bottom:5mm;}
+.rule{height:1.2mm;background:var(--green);width:22mm;border-radius:1mm;margin:0 0 3mm 0;}
+.rule.blue{background:var(--wizard);}
+.rule.orange{background:var(--tangerine);}
+p{margin:0 0 2.5mm 0;}
+.lead{font-size:10pt;color:var(--muted);}
+ul{margin:0 0 2.5mm 0;padding-left:5mm;}
+li{margin-bottom:1.1mm;}
+li::marker{color:var(--green);}
+a{color:var(--wizard);}
+strong{font-weight:600;color:var(--navy);}
+
+/* ---------- figures ---------- */
+.fig{float:right;margin:0 0 3mm 5mm;text-align:center;width:23mm;}
+.fig.left{float:left;margin:0 5mm 3mm 0;}
+.fig.wide{width:34mm;}
+.fig.inset{margin-right:7mm;}
+.fig img{width:100%;display:block;}
+.fig figcaption{
+  font-size:6.6pt;color:var(--muted);margin-top:1mm;line-height:1.25;
+  font-family:'Nunito',Arial,sans-serif;font-weight:700;
+}
+
+/* ---------- panels ---------- */
+.panel{border-radius:2.5mm;padding:4mm 5mm;margin:0 0 3mm 0;}
+.panel.green{background:var(--tintg);border-left:1.5mm solid var(--green);}
+.panel.blue{background:var(--tintb);border-left:1.5mm solid var(--wizard);}
+.panel.orange{background:var(--tinto);border-left:1.5mm solid var(--tangerine);}
+.panel.navy{background:var(--tintn);border-left:1.5mm solid var(--navy);}
+.panel h3{margin-top:0;}
+.panel p:last-child,.panel ul:last-child{margin-bottom:0;}
+
+.cols{display:flex;gap:5mm;}
+.cols > *{flex:1;min-width:0;}
+
+/* stretch and challenge tiles */
+.tiles{display:flex;gap:4mm;margin-top:2mm;}
+.tile{
+  flex:1;border-radius:2.5mm;padding:4mm;font-size:8.8pt;line-height:1.45;
+}
+.tile.t1{background:#a9dced;color:#12303c;}
+.tile.t2{background:#7c95c4;color:#fff;}
+.tile .tl{
+  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:8pt;
+  letter-spacing:.1em;display:block;margin-bottom:1.5mm;opacity:.8;
+}
+
+/* programme cards */
+.progs{display:flex;gap:4mm;margin-top:1mm;}
+.prog{
+  flex:1;border:0.4mm solid var(--rule);border-radius:2.5mm;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.prog .bar{height:3mm;}
+.prog .body{padding:4mm;flex:1;}
+.prog .when{
+  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.6pt;
+  letter-spacing:.1em;margin-bottom:1.5mm;
+}
+.prog h4{
+  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:11pt;
+  margin:0 0 1.5mm 0;color:var(--navy);line-height:1.15;
+}
+.prog p{font-size:8.6pt;margin:0;color:var(--muted);}
+
+/* contact cards */
+.contacts{display:flex;gap:4mm;margin-top:1mm;}
+.card{
+  flex:1;background:var(--navy);color:#fff;border-radius:2.5mm;padding:4.5mm;
+}
+.card .role{
+  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.6pt;
+  letter-spacing:.1em;color:#7fd3a2;margin-bottom:1.5mm;
+}
+.card .nm{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:12pt;margin-bottom:1.5mm;}
+.card .det{font-size:8.6pt;color:#dbe1ee;line-height:1.6;}
+.card .det a{color:#9fd0ff;}
+
+.signoff{
+  border-top:0.4mm solid var(--rule);margin-top:5mm;padding-top:4mm;
+  font-size:8.6pt;color:var(--muted);
+}
+.signoff .who{font-family:'Nunito',Arial,sans-serif;font-weight:800;color:var(--navy);font-size:10pt;}
+
+.draftnote{
+  border:0.4mm dashed var(--tangerine);background:#fff8f1;border-radius:2mm;
+  padding:3mm 4mm;font-size:8pt;color:#8a4a10;margin-top:3mm;
+}
+.clear{clear:both;}
+
+/* incentive band with QR */
+.qrband{display:flex;gap:5mm;align-items:stretch;}
+.qrband .txt{flex:1;min-width:0;}
+.qrbox{
+  width:37mm;flex:none;background:var(--tintn);border-radius:2.5mm;
+  padding:3.5mm 3mm;text-align:center;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+}
+.qrbox img{width:27mm;height:27mm;display:block;}
+.qrbox .cap{
+  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.4pt;
+  color:var(--navy);margin-top:2mm;line-height:1.3;
+}
+.figrow{display:flex;gap:4mm;}
+.figrow .stat{
+  flex:1;background:var(--tintg);border-radius:2.5mm;padding:3mm;text-align:center;
+}
+.figrow .stat .big{
+  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:16pt;color:var(--green);
+  line-height:1.1;
+}
+.figrow .stat .lbl{font-size:8pt;color:var(--ink);margin-top:1mm;line-height:1.35;}
+</style>
+</head>
+<body>
+<!--
+  Copy this file to work/issue.html and edit the body only.
+
+  Structure: one <section class="page"> per printed page. Page one carries the
+  full-bleed .masthead; later pages carry the slimmer .runhead. Everything
+  inside sits in a .pad wrapper for the 16mm side margins.
+
+  Available blocks (see references/layout.md):
+    .section                a numbered section with an <h2> and a .rule
+    .panel .blue|.green|.orange|.navy    tinted callout with a coloured left bar
+    .cols                   two panels side by side
+    .fig / .fig.left / .fig.wide / .fig.inset    floated character illustration
+    .tiles > .tile.t1|.t2   the two stretch-and-challenge boxes
+    .progs > .prog          programme cards, three across
+    .contacts > .card       staff contact cards, two across
+    .figrow > .stat         big-number tiles
+    .qrband + .qrbox        text alongside a QR code
+    .draftnote              dashed internal note, remove before sending
+
+  Run scripts/qa_check.py after every render. Pages clip silently.
+-->
+
+<section class="page">
+  <div class="masthead">
+    <div class="ring"></div>
+    <div class="mast-top">
+      <div>
+        <p class="eyebrow">ISSUE 00 &nbsp;|&nbsp; MONTH YEAR</p>
+        <h1>In The Loop</h1>
+      </div>
+      <img class="mast-logo" src="assets/logo_white.png" alt="CoreEd">
+    </div>
+    <p class="mast-sub">One line saying who this is for.</p>
+  </div>
+
+  <div class="pad">
+    <div class="section">
+      <figure class="fig left" style="width:21mm">
+        <img src="assets/characters/Corrie_Happy.png" alt="">
+        <figcaption>Corrie Patel<br>Apprentice</figcaption>
+      </figure>
+      <p class="lead">Opening paragraph.</p>
+      <p>Second paragraph.</p>
+      <div class="clear"></div>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">1</span>Section heading</h2>
+      <div class="rule"></div>
+      <p>Body copy.</p>
+
+      <div class="cols">
+        <div class="panel blue">
+          <h3>Left panel</h3>
+          <ul><li>Point</li><li>Point</li></ul>
+        </div>
+        <div class="panel green">
+          <h3>Right panel</h3>
+          <ul><li>Point</li><li>Point</li></ul>
+        </div>
+      </div>
+
+      <div class="panel orange">
+        <p style="margin:0"><strong>Note.</strong> A short highlighted line.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="runhead">
+    <span class="rh-title">In The Loop &nbsp;|&nbsp; Month Year</span>
+    <img class="rh-logo" src="assets/logo_white.png" alt="CoreEd">
+  </div>
+
+  <div class="pad">
+    <div class="section">
+      <h2><span class="num">2</span>Next section</h2>
+      <div class="rule blue"></div>
+      <p>Body copy.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="num">3</span>We are here to help</h2>
+      <div class="rule blue"></div>
+      <div class="contacts">
+        <div class="card">
+          <div class="role">DESIGNATED SAFEGUARDING LEAD &amp; WELLBEING SUPPORT</div>
+          <div class="nm">Jeannette Adrian</div>
+          <div class="det">07557 093701<br><a href="mailto:jeannette@CoreEd.co.uk">jeannette@CoreEd.co.uk</a></div>
+        </div>
+        <div class="card">
+          <div class="role">DEPUTY DESIGNATED SAFEGUARDING LEAD</div>
+          <div class="nm">Airam Neesa</div>
+          <div class="det">07912 342 367<br><a href="mailto:airam@CoreEd.co.uk">airam@CoreEd.co.uk</a></div>
+        </div>
+      </div>
+
+      <div class="panel navy" style="margin-top:3.5mm">
+        <p style="margin:0"><strong>General enquiries</strong> &nbsp;
+        <a href="mailto:enquiries@CoreEd.co.uk">enquiries@CoreEd.co.uk</a> &nbsp;|&nbsp;
+        <a href="https://www.CoreEd.co.uk">www.CoreEd.co.uk</a><br>
+        The Media Centre, 7 Northumberland Street, Huddersfield, HD1 1RL &nbsp;|&nbsp;
+        In an emergency, always call 999.</p>
+      </div>
+
+      <div class="signoff">
+        <span class="who">The CoreEd Team</span> &nbsp; Closing line.
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
