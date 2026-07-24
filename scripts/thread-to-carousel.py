@@ -17,15 +17,127 @@ import sys
 import os
 import shutil
 import subprocess
+from io import BytesIO
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 try:
     from pilmoji import Pilmoji
-    from pilmoji.source import AppleEmojiSource
+    from pilmoji.source import AppleEmojiSource, BaseSource
     HAS_PILMOJI = True
 except ImportError:
     HAS_PILMOJI = False
+    BaseSource = object
+
+
+# ---------------------------------------------------------------------------
+# Emoji rendering
+#
+# Emoji are rendered from a *local* color-emoji font (Noto / Apple / Segoe)
+# so there is no network round-trip during slide generation. The stock
+# pilmoji sources fetch each emoji PNG from a CDN, which crashes the whole
+# render in offline/proxied environments. A local source avoids that and is
+# faster. If no local font is found we fall back to pilmoji's network source,
+# and if emoji rendering fails for any reason we degrade to plain text
+# instead of aborting the slide.
+# ---------------------------------------------------------------------------
+EMOJI_FONT_CANDIDATES = [
+    # (font path, candidate strike sizes to try — first that loads wins)
+    ("/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf", [109]),          # Linux (Noto, bitmap strike)
+    ("/System/Library/Fonts/Apple Color Emoji.ttc", [160, 137, 96]),        # macOS (sbix strikes)
+    ("/Library/Fonts/Apple Color Emoji.ttc", [160, 137, 96]),
+    ("C:/Windows/Fonts/seguiemj.ttf", [109, 96, 64]),                       # Windows (Segoe, scalable COLR)
+]
+
+# Set once render fails, so we stop retrying (and re-printing warnings).
+_EMOJI_RENDER_FAILED = False
+
+
+class LocalEmojiSource(BaseSource):
+    """pilmoji source that rasterizes emoji from a local color font — no network."""
+
+    def __init__(self, font_path, strike_size):
+        self._font = ImageFont.truetype(font_path, strike_size)
+        self._strike = strike_size
+
+    def get_emoji(self, emoji):
+        try:
+            side = self._strike * 2
+            tmp = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+            ImageDraw.Draw(tmp).text((0, 0), emoji, font=self._font, embedded_color=True)
+            bbox = tmp.getbbox()
+            if not bbox:
+                return None
+            glyph = tmp.crop(bbox)
+            # Pad to a square so pilmoji's resize keeps the aspect ratio.
+            sq_side = max(glyph.width, glyph.height)
+            square = Image.new("RGBA", (sq_side, sq_side), (0, 0, 0, 0))
+            square.paste(glyph, ((sq_side - glyph.width) // 2, (sq_side - glyph.height) // 2), glyph)
+            buf = BytesIO()
+            square.save(buf, "PNG")
+            buf.seek(0)
+            return buf
+        except Exception:
+            return None
+
+    def get_discord_emoji(self, id):  # noqa: A002 - signature dictated by pilmoji
+        return None
+
+
+def _load_emoji_source():
+    """Return a pilmoji source: prefer a local color font, fall back to network."""
+    if not HAS_PILMOJI:
+        return None
+    for path, sizes in EMOJI_FONT_CANDIDATES:
+        if not os.path.exists(path):
+            continue
+        for sz in sizes:
+            try:
+                return LocalEmojiSource(path, sz)
+            except (OSError, IOError):
+                continue
+    # No local emoji font — fall back to pilmoji's network source.
+    return AppleEmojiSource
+
+
+EMOJI_SOURCE = _load_emoji_source()
+
+
+def _draw_text_lines(canvas, draw, lines, x, start_y, line_h, font):
+    """Draw wrapped text lines with emoji, degrading to plain text on failure."""
+    global _EMOJI_RENDER_FAILED
+
+    def _plain():
+        ty = start_y
+        for line in lines:
+            if line == "":
+                ty += int(line_h * 0.55)
+                continue
+            draw.text((x, ty), line, fill=TEXT_COLOR, font=font)
+            ty += line_h
+        return ty
+
+    if not (HAS_PILMOJI and EMOJI_SOURCE is not None) or _EMOJI_RENDER_FAILED:
+        return _plain()
+
+    try:
+        ty = start_y
+        with Pilmoji(canvas, source=EMOJI_SOURCE) as pmoji:
+            for line in lines:
+                if line == "":
+                    ty += int(line_h * 0.55)
+                    continue
+                pmoji.text((x, ty), line, fill=TEXT_COLOR, font=font,
+                           emoji_position_offset=(0, -6))
+                ty += line_h
+        return ty
+    except Exception as e:
+        # Network source unreachable, or any other emoji failure — never abort
+        # the render over decoration. Fall back to plain text for the rest.
+        _EMOJI_RENDER_FAILED = True
+        print(f"  Warning: emoji rendering unavailable ({e.__class__.__name__}); "
+              "drawing text without emoji")
+        return _plain()
 
 # ---------------------------------------------------------------------------
 # Layout constants (1080x1350 — Instagram 4:5 portrait)
@@ -270,21 +382,7 @@ def draw_tweet(canvas, draw, tweet, profile, fonts, x, y, max_text_w, skip_gif=F
     lines = wrap_text(tweet["text"], fonts["tweet"], max_text_w, draw)
     line_h = int(TWEET_SIZE * TWEET_LINE_HEIGHT)
 
-    if HAS_PILMOJI:
-        with Pilmoji(canvas, source=AppleEmojiSource) as pmoji:
-            for line in lines:
-                if line == "":
-                    ty += int(line_h * 0.55)
-                    continue
-                pmoji.text((x, ty), line, fill=TEXT_COLOR, font=fonts["tweet"], emoji_position_offset=(0, -6))
-                ty += line_h
-    else:
-        for line in lines:
-            if line == "":
-                ty += int(line_h * 0.55)
-                continue
-            draw.text((x, ty), line, fill=TEXT_COLOR, font=fonts["tweet"])
-            ty += line_h
+    ty = _draw_text_lines(canvas, draw, lines, x, ty, line_h, fonts["tweet"])
 
     # --- Embedded image ---
     if tweet.get("image") and os.path.exists(tweet["image"]):

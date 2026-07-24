@@ -366,7 +366,7 @@ Then reference the generated image in the slide config:
 
 **Animated slides look wrong or crash the session:** The script outputs `.mp4` (via ffmpeg) for animated slides instead of GIF, preserving full color. A `.png` preview is also saved for chat display. If ffmpeg is not installed, it falls back to GIF (which has color limitations). Install ffmpeg with `brew install ffmpeg`.
 
-**Emoji rendering:** The script uses `pilmoji` with `AppleEmojiSource` for native Apple emoji rendering. If `pilmoji` is not installed (`pip3 install pilmoji`), emoji will render as blank squares. The emoji vertical alignment is corrected with `emoji_position_offset=(0, -6)` in the script.
+**Emoji rendering:** The script renders emoji from a **local color-emoji font** (Noto Color Emoji on Linux, Apple Color Emoji on macOS, Segoe UI Emoji on Windows) via `pilmoji` — no network round-trip, so it works offline and in proxied/sandboxed environments. If no local emoji font is found it falls back to pilmoji's network source, and if emoji rendering fails for any reason it degrades to plain text rather than aborting the slide. If `pilmoji` is not installed (`pip3 install pilmoji`), emoji are skipped. The emoji vertical alignment is corrected with `emoji_position_offset=(0, -6)` in the script.
 
 ---
 
