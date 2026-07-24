@@ -1,0 +1,16 @@
+# Core — required by thread-to-carousel.py (the main slide renderer)
+Pillow>=10.0.0
+pilmoji>=2.0.0          # emoji rendering (uses a local color-emoji font; see SKILL.md)
+
+# Optional — only needed for the helper scripts noted below:
+#   generate_carousel_image.py  -> google-genai   (GEMINI_API_KEY)
+#   tavily-image-search.py      -> requests        (TAVILY_API_KEY)
+#   giphy-search.py             -> requests        (GIPHY_API_KEY)
+#   website-screenshot.py       -> playwright      (+ `playwright install chromium`)
+#   steel-browse.py             -> steel-sdk, playwright (STEEL_API_KEY)
+#
+# Install the optional ones as needed, e.g.:
+#   pip install google-genai requests playwright steel-sdk
+#
+# Video / animated-GIF slides also require the `ffmpeg` binary on PATH
+# (e.g. `apt-get install ffmpeg` or `brew install ffmpeg`).
