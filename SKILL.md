@@ -187,7 +187,21 @@ Create the config file at `workspace/<date>/<title>/config.json`:
 ```
 
 **Config options:**
-- `theme` - `"light"` (white background, dark text) or `"dark"` (black background, light text). Default: `"light"`.
+- `theme` - either a named theme or a custom brand palette. Default: `"light"`.
+  - **Named:** `"light"` (white background, dark text) or `"dark"` (black background, light text).
+  - **Custom object** - to match a brand palette, pass an object of colour overrides. Any key you omit falls back to the named `base` theme (default `"light"`):
+    ```json
+    "theme": {
+      "base": "dark",
+      "bg": "#232b50",
+      "text": "#ffffff",
+      "verified": "#0073d9",
+      "handle": "#8fa0c0",
+      "divider": "#3a4468",
+      "placeholder": "#33406a"
+    }
+    ```
+    Keys: `bg` (slide background), `text` (tweet/name text), `handle` (handle + secondary text), `verified` (badge fill), `divider` (line between two tweets), `placeholder` (fallback avatar circle). For a fully on-brand carousel, pair a custom theme with a brand-coloured headshot/logo avatar and embedded images drawn on the same `bg` colour so they blend seamlessly.
 
 **Video slides:**
 - Use `"video": "path/to/video.mp4"` at the slide level (no `tweets` needed)

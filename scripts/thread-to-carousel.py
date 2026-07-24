@@ -639,12 +639,23 @@ def main():
 
     os.makedirs(output_dir, exist_ok=True)
 
-    # Apply theme
-    theme_name = config.get("theme", "light")
-    if theme_name not in THEMES:
-        print(f"  Warning: unknown theme '{theme_name}', falling back to 'light'")
-        theme_name = "light"
-    theme = THEMES[theme_name]
+    # Apply theme. `theme` may be:
+    #   - a name: "light" or "dark"
+    #   - a custom object of color overrides, e.g.
+    #       {"base": "dark", "bg": "#232b50", "text": "#ffffff",
+    #        "verified": "#0073d9", "handle": "#8fa0c0", "divider": "#3a4468",
+    #        "placeholder": "#33406a"}
+    #     Any keys omitted fall back to the named base theme (default "light").
+    #     This lets a carousel match an arbitrary brand palette.
+    theme_cfg = config.get("theme", "light")
+    if isinstance(theme_cfg, dict):
+        base = THEMES.get(theme_cfg.get("base", "light"), THEMES["light"])
+        theme = {**base, **{k: v for k, v in theme_cfg.items() if k != "base"}}
+    elif theme_cfg in THEMES:
+        theme = THEMES[theme_cfg]
+    else:
+        print(f"  Warning: unknown theme '{theme_cfg}', falling back to 'light'")
+        theme = THEMES["light"]
     global BG_COLOR, TEXT_COLOR, HANDLE_COLOR, VERIFIED_BLUE, DIVIDER_COLOR, PLACEHOLDER_COLOR
     BG_COLOR = theme["bg"]
     TEXT_COLOR = theme["text"]
