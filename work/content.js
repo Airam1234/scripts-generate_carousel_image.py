@@ -20,7 +20,7 @@ module.exports = {
         },
         {
           type: 'link',
-          before: 'Inside you will find this month’s inclusion date, a reminder about English and maths as results season arrives, the dates worth putting in your diary, and how to reach the safeguarding team. If there is something you would like us to cover next time, email ',
+          before: 'Inside you will find this month’s inclusion date, a reminder about English and maths, the dates worth putting in your diary, and where to find support if you need it over the break. If there is something you would like us to cover next time, email ',
           text: 'enquiries@CoreEd.co.uk',
           href: 'mailto:enquiries@CoreEd.co.uk',
           after: '.',
@@ -50,7 +50,7 @@ module.exports = {
         {
           type: 'callout',
           colour: 'blue',
-          text: 'Every one of those results is a piece of work fitted around a job and, for many of you, a household. If you have finished this summer, well done, and do keep your certificate somewhere safe. If you are still going, the same steady effort is what gets you there.',
+          text: 'Every one of those results is a piece of work fitted around a job and everything else life asks of you. If you have finished this summer, well done, and do keep your certificate somewhere safe. If you are still going, the same steady effort is what gets you there, and your tutor is there for the stretches that feel harder than the rest.',
         },
         {
           type: 'p',
@@ -68,7 +68,7 @@ module.exports = {
         },
         {
           type: 'p',
-          text: 'As an apprentice you are part of that. If there is something about your training that would work better for you, whether that is how sessions are timed or how feedback reaches you, tell your coach. Small changes are easier to make than you might think, and the earlier you raise them the more we can do.',
+          text: 'As an apprentice you are part of that. If there is something about your training that would work better for you, whether that is how sessions are timed or how feedback reaches you, tell your tutor. Small changes are easier to make than you might think, and the earlier you raise them the more we can do.',
         },
         {
           type: 'callout',
@@ -90,22 +90,20 @@ module.exports = {
       blocks: [
         {
           type: 'p',
-          text: 'August is results season. A-level results are published on Thursday 13 August and GCSE results on Thursday 20 August. If you are waiting on a grade that changes what you need to do for Functional Skills, talk to your coach as soon as you have it.',
+          text: 'Functional Skills English and maths are part of many apprenticeships, and the summer is a good time to check where you stand before things get busy again in September. If you have a recent or older qualification that might count towards yours, bring the certificate to your tutor so it can be logged.',
         },
         {
           type: 'p',
-          text: 'Whether you need to complete Functional Skills English and maths depends on your age and the type of apprenticeship you are on, and the rules have changed in recent years. Please do not assume you are exempt. Check with your coach, who can confirm what applies to you and book any exams you still have left.',
+          text: 'Whether you need to complete Functional Skills English and maths depends on your age and the type of apprenticeship you are on, and the rules have changed in recent years. Please do not assume you are exempt. Check with your tutor, who can confirm what applies to you and book any exams you still have left.',
         },
         { type: 'h2', text: 'If you have exams to sit' },
         { type: 'bullets', items: [
           'Book early. Summer sittings fill up.',
-          'Ask your coach for a past paper to practise with.',
-          'Tell us if you need a quiet room or extra time.',
+          'Ask your tutor for a past paper to practise with.',
         ]},
         { type: 'h2', text: 'If you are not sure' },
         { type: 'bullets', items: [
-          'Do not guess your status from a friend’s.',
-          'One message to your coach settles it.',
+          'One message to your tutor settles it.',
           'We would rather check twice than miss a deadline.',
         ]},
         {
@@ -121,13 +119,22 @@ module.exports = {
     {
       heading: '4. Dates for your diary',
       blocks: [
+        {
+          type: 'p',
+          text: 'A few dates worth noting this month, and a couple of things worth sorting before the summer slows down.',
+        },
         { type: 'bullets', items: [
           'Wednesday 12 August: International Youth Day.',
           'Thursday 13 August: A-level results day.',
           'Wednesday 19 August: World Humanitarian Day.',
           'Thursday 20 August: GCSE results day.',
-          'Into September: coach and workshop timetables change over the summer. Check your calendar, or ask your coach for the term dates once term restarts.',
+          'Into September: tutor and workshop timetables change over the summer. Check your calendar, or ask your tutor for the term dates once term restarts.',
         ]},
+        { type: 'h2', text: 'Before the break' },
+        {
+          type: 'p',
+          text: 'Keep any certificates somewhere safe. If you use an online portal for your work, check you can still log in before term restarts. And note when your tutor is back in September, so you know who to speak to and when. It takes five minutes now and saves a scramble later.',
+        },
       ],
     },
     {
@@ -135,11 +142,11 @@ module.exports = {
       blocks: [
         {
           type: 'p',
-          text: 'The summer can be a harder stretch than it looks. Routines change, money is often tighter, and it is easier to feel out of touch when workshops are quieter. If something is worrying you, at work or outside it, tell us the same day. Early concerns are easier to resolve.',
+          text: 'Summer can feel different. Routines change, and it is easy to lose touch when things are quieter. If something is on your mind, at work or outside it, you can talk to us, and the sooner the better.',
         },
         {
           type: 'p',
-          text: 'We will listen, agree what happens next with you, and keep you informed. Raising a concern does not put your apprenticeship at risk. The safeguarding team’s contact details are below.',
+          text: 'Our Designated Safeguarding Lead is the person to start with. We will listen and agree what happens next with you. Raising something with us does not put your apprenticeship at risk. Airam Neesa, our Deputy, is listed on the back page.',
         },
         {
           type: 'contact',
@@ -149,28 +156,9 @@ module.exports = {
           email: 'jeannette@CoreEd.co.uk',
         },
         {
-          type: 'contact',
-          name: 'Airam Neesa',
-          role: 'Deputy Designated Safeguarding Lead',
-          phone: '07912 342 367',
-          email: 'airam@CoreEd.co.uk',
-        },
-        { type: 'h2', text: 'How to raise a concern' },
-        { type: 'bullets', items: [
-          'Tell us the same day, by phone, email or in person.',
-          'Say what has happened and what you are worried about.',
-          'We agree the next step with you before we take it.',
-        ]},
-        { type: 'h2', text: 'Worried about someone else?' },
-        { type: 'bullets', items: [
-          'You do not need to be certain to speak up.',
-          'Pass on what you have noticed to the team.',
-          'We will take it from there and keep it discreet.',
-        ]},
-        {
           type: 'callout',
           colour: 'orange',
-          text: 'Prevent. CoreEd has a duty under the government’s Prevent programme to help keep people safe from being drawn into extremism. If you are worried that you, or someone you know, is being pulled towards extreme views or violence, tell the safeguarding team. We would rather you raised it and were wrong than said nothing. In an emergency, always call 999.',
+          text: 'Prevent. CoreEd has a duty under the government’s Prevent programme to help keep people safe from being drawn into extremism. If you are worried that you, or someone you know, is being pulled towards extreme views, tell the safeguarding team. In an emergency, always call 999.',
         },
         {
           type: 'image',
@@ -187,7 +175,7 @@ module.exports = {
       blocks: [
         {
           type: 'p',
-          text: 'If you are struggling this summer, you do not have to wait for a session to talk to someone. These services are free and you can use them yourself, at any time.',
+          text: 'You do not have to wait for a session to talk to someone. These services are free and open to anyone, at any time. Save the ones that feel useful to you now, so you have them if you ever need them later.',
         },
         { type: 'h2', text: 'Someone to talk to' },
         { type: 'bullets', items: [
@@ -231,7 +219,6 @@ module.exports = {
           href: 'mailto:enquiries@CoreEd.co.uk',
           after: '  |  Visit www.CoreEd.co.uk  |  The Media Centre, 7 Northumberland Street, Huddersfield, HD1 1RL',
         },
-        { type: 'p', text: 'In an emergency, always call 999.', bold: true },
       ],
     },
   ],
