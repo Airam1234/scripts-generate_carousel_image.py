@@ -6,11 +6,13 @@ A skill is a set of instructions and tools that Claude reads when it is already 
 
 Equally, nothing here sends email on its own. Deciding to send is a human act, and it should stay one — see "Why not fully unattended" below.
 
-## Recommended cadence
+## Cadence
 
-**Draft on the 1st. Review. Send by the 5th.**
+**Draft on the 1st. Review. Send on the 5th.**
 
-The scheduled job produces the two files and tells a human they are ready. Airam or Jeannette reads the draft, fills any figure placeholder, and sends. That leaves four working days of slack for a bank holiday, a missing statistic, or an awareness date that turns out to have moved.
+The **5th of the month is the standing send date** — every issue goes out on the 5th. The scheduled job produces the two files by the 1st and tells a human they are ready. Airam or Jeannette reads the draft, fills any figure placeholder, and it sends on the 5th. That leaves four working days of slack for a bank holiday, a missing statistic, or an awareness date that turns out to have moved.
+
+If the 5th falls on a weekend or bank holiday, send on the 5th anyway unless told otherwise — the recipients read it when they read it.
 
 ## macOS and Linux — cron
 

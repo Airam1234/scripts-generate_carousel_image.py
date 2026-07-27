@@ -86,7 +86,7 @@ Same pipeline, different content and cadence. It is quarterly, uses Sea Green as
 
 A skill does not run on a timer. Scheduling comes from cron, launchd, Task Scheduler or a CI job that invokes Claude Code headlessly. `references/automation.md` has working examples for each, plus the reasoning behind the recommended cadence.
 
-The recommended pattern is **draft on the 1st, human review, send by the 5th** — not unattended sending. These newsletters carry safeguarding contacts, crisis resources and governance figures. An unreviewed send is the failure mode worth designing against, and the review costs one person ten minutes.
+The standing pattern is **draft on the 1st, human review, send on the 5th**. The 5th is the fixed send date for every issue. This is not unattended sending: these newsletters carry safeguarding contacts, crisis resources and governance figures, so a human reviews the draft before the 5th. An unreviewed send is the failure mode worth designing against, and the review costs one person ten minutes.
 
 ## Files in this skill
 
