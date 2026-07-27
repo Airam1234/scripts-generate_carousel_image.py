@@ -202,6 +202,15 @@ Create the config file at `workspace/<date>/<title>/config.json`:
     }
     ```
     Keys: `bg` (slide background), `text` (tweet/name text), `handle` (handle + secondary text), `verified` (badge fill), `divider` (line between two tweets), `placeholder` (fallback avatar circle). For a fully on-brand carousel, pair a custom theme with a brand-coloured headshot/logo avatar and embedded images drawn on the same `bg` colour so they blend seamlessly.
+- `fonts` - optional brand fonts. Point at TrueType/OpenType files and they're used for the cards (bold for the display name, regular for the handle and tweet body). Anything omitted or missing falls back to the built-in cross-platform search, so partial config is fine:
+  ```json
+  "fonts": {
+    "regular": "path/to/Rubik-Regular.ttf",
+    "bold": "path/to/Rubik-Bold.ttf"
+  }
+  ```
+
+**Brand presets:** ready-made brand configs live under `presets/`. For example, `presets/coreed/` bundles the CoreEd theme, logo avatar, and Rubik fonts — copy `presets/coreed/config.example.json`, replace the `slides`, and generate. See `presets/coreed/README.md`.
 
 **Video slides:**
 - Use `"video": "path/to/video.mp4"` at the slide level (no `tweets` needed)

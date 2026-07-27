@@ -206,8 +206,17 @@ def _find_font(candidates, size):
         return ImageFont.load_default(size)
 
 
-def load_fonts():
-    bold_candidates = [
+def load_fonts(font_cfg=None):
+    # A carousel can specify its own brand fonts via config "fonts":
+    #   "fonts": { "regular": "path/Rubik-Regular.ttf",
+    #              "bold":    "path/Rubik-Bold.ttf" }
+    # When given, those files are tried first (bold used for the display name,
+    # regular for the handle and tweet body); anything missing falls back to
+    # the cross-platform search below, so partial or absent config is fine.
+    font_cfg = font_cfg or {}
+    reg = font_cfg.get("regular")
+    bold = font_cfg.get("bold")
+    bold_candidates = ([bold] if bold else []) + ([reg] if reg else []) + [
         # macOS
         "/System/Library/Fonts/SFNSTextBold.otf",
         "/Library/Fonts/SF-Pro-Display-Bold.otf",
@@ -220,7 +229,7 @@ def load_fonts():
         # Windows
         "C:/Windows/Fonts/arialbd.ttf",
     ]
-    regular_candidates = [
+    regular_candidates = ([reg] if reg else []) + [
         # macOS
         "/System/Library/Fonts/SFNSText.otf",
         "/Library/Fonts/SF-Pro-Display-Regular.otf",
@@ -666,7 +675,7 @@ def main():
 
     profile = config["profile"]
     slides = config["slides"]
-    fonts = load_fonts()
+    fonts = load_fonts(config.get("fonts"))
 
     generated = []
     for i, slide in enumerate(slides):

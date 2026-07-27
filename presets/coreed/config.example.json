@@ -1,0 +1,43 @@
+{
+  "profile": {
+    "name": "CoreEd",
+    "handle": "@coreedlimited",
+    "verified": true,
+    "headshot": "presets/coreed/avatar.png"
+  },
+  "fonts": {
+    "regular": "presets/coreed/fonts/Rubik-Regular.ttf",
+    "bold": "presets/coreed/fonts/Rubik-Bold.ttf"
+  },
+  "theme": {
+    "base": "dark",
+    "bg": "#232b50",
+    "text": "#ffffff",
+    "verified": "#0073d9",
+    "handle": "#8fa0c0",
+    "divider": "#3a4468",
+    "placeholder": "#33406a"
+  },
+  "slides": [
+    {
+      "tweets": [
+        {
+          "text": "Your hook goes here 👋\n\nOne strong line, then a promise of what's inside."
+        }
+      ]
+    },
+    {
+      "tweets": [
+        { "text": "First short point." },
+        { "text": "Second short point (two per slide, divider between)." }
+      ]
+    },
+    {
+      "tweets": [
+        {
+          "text": "Closing line ✅\n\nSave this. Share it.\nBridging talent and industry through skills.\n\nCoreEd.com"
+        }
+      ]
+    }
+  ]
+}
