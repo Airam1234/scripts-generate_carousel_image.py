@@ -25,13 +25,13 @@ Read `references/brand.md` and `references/house-style.md` before writing any co
 Ask the user for this issue's content unless they have already given it. For a learner issue the standing sections are in `references/layout.md`. What changes each month is:
 
 - Awareness dates and inclusion events for that month
-- Any results, milestones or cohort news
+- Any results, milestones or cohort news (results figures come from the SLT monthly data pack â€” see `references/data-sources.md`)
 - Dates for the diary
 - Anything the safeguarding team wants raised
 
 **Verify awareness dates against the specific year.** They move. Search for the actual dates rather than relying on memory, and say in your summary which ones you checked.
 
-**Never invent figures.** If the user has not supplied a pass rate, distinction rate or similar, put a visible `[XX%]` placeholder in the tile and flag it in your summary as blocking. A newsletter that goes out with a made-up statistic is worse than one that goes out late.
+**Never invent figures.** The results figures come from the SLT monthly data pack; `references/data-sources.md` says exactly where the file lives and which cells to read. If a figure genuinely is not available, put a visible `[XX%]` placeholder in the tile and flag it in your summary as blocking. A newsletter that goes out with a made-up statistic is worse than one that goes out late.
 
 ### 2. Write the copy
 
@@ -93,6 +93,7 @@ The recommended pattern is **draft on the 1st, human review, send by the 5th** â
 | Path | Read it when |
 |---|---|
 | `references/brand.md` | Before any design or colour decision |
+| `references/data-sources.md` | Finding the results figures for each issue |
 | `references/house-style.md` | Before writing any copy |
 | `references/layout.md` | Before building the HTML, and when trimming |
 | `references/automation.md` | Setting up scheduling or headless runs |

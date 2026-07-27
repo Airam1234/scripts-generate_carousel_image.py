@@ -96,6 +96,8 @@ The job needs somewhere to look for this month's material. The simplest arrangem
 
 If it is empty or missing, the run should still produce a draft from the standing sections and say clearly that no content was supplied.
 
+The **results figures are the exception** — they do not come from the inbox. They live in the SLT monthly data pack on SharePoint, reached through the Microsoft 365 connector. `references/data-sources.md` gives the library, folder, filename pattern and which cells to read. A headless run needs that connector authenticated, or it should leave the figures as placeholders and flag them.
+
 ## Notifying a human
 
 Add a step after the draft. Any of these work:

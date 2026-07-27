@@ -40,22 +40,21 @@ module.exports = {
       blocks: [
         {
           type: 'p',
-          text: 'We want to mark what this cohort has achieved this quarter. The figures below are being confirmed with our quality team and will be filled in before this issue goes out.',
+          text: 'We want to mark what this cohort has achieved. These are our most recent confirmed figures, from June. Over half of those who achieved took a distinction or merit, and six apprentices reached the end of their programme. Behind each number is someone who kept going through a full apprenticeship while holding down a job.',
         },
         { type: 'bullets', items: [
-          '[XX%] of apprentices passed their end-point assessment this quarter.',
-          '[XX%] achieved a distinction or merit.',
-          '[XX] learners completed their apprenticeship.',
+          '53% achieved a distinction or merit.',
+          '6 apprenticeships were completed in June.',
         ]},
         {
           type: 'callout',
           colour: 'blue',
-          text: 'Every one of those results is a piece of work fitted around a job and everything else life asks of you. If you have finished this summer, well done, and do keep your certificate somewhere safe. If you are still going, the same steady effort is what gets you there, and your tutor is there for the stretches that feel harder than the rest.',
+          text: 'Every one of those results is a piece of work fitted around a job and everything else life asks of you. If you have finished recently, well done, and do keep your certificate somewhere safe. If you are still going, the same steady effort is what gets you there, and your tutor is there for the stretches that feel harder than the rest. If you are close to finishing, tell your tutor what is left and you can plan the last steps together.',
         },
         {
-          type: 'p',
-          bold: true,
-          text: 'Internal note, remove before sending: the three figures above are placeholders. Ask the quality team for this quarter’s confirmed pass rate, distinction and merit rate, and completion count. Do not send with any figure showing.',
+          type: 'callout',
+          colour: 'green',
+          text: 'Finishing this summer? Tell us where you are heading next, whether that is a job, more training, or something else. We like to hear how it turns out, and it helps us support the learners coming up behind you.',
         },
       ],
     },
