@@ -19,17 +19,19 @@ sync path — that only exists on one person's machine.
 
 | Figure | Where to read it |
 |---|---|
-| Achievement rate | Dashboard at the top of the workbook |
+| Pass rate | Dashboard at the top of the workbook |
 | Distinction rate | Dashboard at the top of the workbook |
 | Completions for the month | Achievement tab (June 2026 was in cell `L32` = 6). The cell moves month to month, so read across the month's column rather than trusting a fixed cell reference. |
 
+CoreEd calls the headline achievement figure the **pass rate** — use that term,
+not "achievement rate".
+
 ## House-style guard on these numbers
 
-`references/house-style.md` is firm: do not state or imply a 100% pass or
-achievement rate. If the achievement rate is 100% (June 2026 was), **do not
-print it** — show the distinction rate and completion count instead, or swap in
-another agreed metric. The distinction rate and completion count are fine to
-show as they are.
+`references/house-style.md` is firm: do not state or imply a 100% pass rate. If
+the pass rate is 100% (June 2026 was), **do not print it** — show the
+distinction rate and completion count instead, or swap in another agreed
+metric. The distinction rate and completion count are fine to show as they are.
 
 Label the figures with the month they come from. An August issue built on June
 data should say the figures are June's, not imply they are August's.

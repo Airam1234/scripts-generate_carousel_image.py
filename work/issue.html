@@ -10,356 +10,244 @@
 @font-face{font-family:'Rubik';src:url('assets/fonts/Rubik-Italic[wght].ttf') format('truetype');font-weight:300 900;font-style:italic;}
 
 :root{
-  --navy:#232b50;
-  --wizard:#0073d9;
-  --tangerine:#f57d21;
-  --green:#2e8c57;
-  --ink:#2f3542;
-  --muted:#5b6472;
-  --rule:#dfe3ea;
-  --tintg:#eaf4ee;
-  --tintb:#e8f1fc;
-  --tinto:#fdf0e4;
-  --tintn:#eef0f6;
+  --navy:#232b50; --wizard:#0073d9; --tangerine:#f57d21; --green:#2e8c57;
+  --ink:#2f3542; --muted:#5b6472; --rule:#dfe3ea;
+  --tintg:#eaf4ee; --tintb:#e8f1fc; --tinto:#fdf0e4; --tintn:#eef0f6;
 }
-
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
-body{
-  font-family:'Rubik',Arial,sans-serif;
-  color:var(--ink);
-  font-size:9.5pt;
-  line-height:1.48;
-  -webkit-print-color-adjust:exact;
-  print-color-adjust:exact;
-}
-
-.page{
-  width:210mm;
-  height:272mm;
-  position:relative;
-  overflow:hidden;
-  page-break-after:always;
-}
+body{font-family:'Rubik',Arial,sans-serif;color:var(--ink);font-size:9.5pt;line-height:1.42;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.page{width:210mm;height:272mm;position:relative;overflow:hidden;page-break-after:always;}
 .page:last-child{page-break-after:auto;}
 .pad{padding:0 16mm;}
 
-/* ---------- masthead ---------- */
-.masthead{
-  background:var(--navy);
-  color:#fff;
-  padding:11mm 16mm 9mm 16mm;
-  position:relative;
-  margin-bottom:7mm;
-}
-.masthead .ring{
-  position:absolute;right:-26mm;top:-34mm;width:78mm;height:78mm;
-  border:11mm solid rgba(255,255,255,0.05);border-radius:50%;
-}
+/* masthead */
+.masthead{background:var(--navy);color:#fff;padding:10mm 16mm 8mm 16mm;position:relative;margin-bottom:5mm;}
 .mast-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10mm;}
-.mast-logo{height:11mm;}
-.eyebrow{
-  font-family:'Nunito',Arial,sans-serif;font-weight:800;
-  font-size:8pt;letter-spacing:.16em;color:#7fd3a2;margin:0 0 2mm 0;
-}
-h1{
-  font-family:'Nunito',Arial,sans-serif;font-weight:800;
-  font-size:26pt;line-height:1.06;margin:0;color:#fff;letter-spacing:-.005em;
-}
-.mast-sub{margin:3mm 0 0 0;font-size:9.4pt;color:#c3cbdd;max-width:120mm;}
+.mast-logo{height:9.5mm;}
+.eyebrow{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.8pt;letter-spacing:.14em;color:#8f9ab5;margin:0 0 2mm 0;}
+h1{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:25pt;line-height:1.05;margin:0;color:#fff;letter-spacing:-.005em;}
+.mast-issue{margin:2.5mm 0 0 0;font-size:9pt;color:#c3cbdd;}
+.mast-issue strong{color:#fff;font-weight:600;}
+.mast-bar{display:flex;gap:2mm;margin-top:4mm;}
+.mast-bar span{height:1.6mm;width:15mm;border-radius:1mm;}
+.mast-bar .o{background:var(--tangerine);} .mast-bar .b{background:var(--wizard);} .mast-bar .g{background:var(--green);}
 
-/* running header for pages 2-4 */
-.runhead{
-  background:var(--navy);color:#fff;
-  padding:5mm 16mm;display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:7mm;
-}
+/* running header */
+.runhead{background:var(--navy);color:#fff;padding:4.5mm 16mm;display:flex;align-items:center;justify-content:space-between;margin-bottom:6mm;}
 .runhead .rh-title{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:11.5pt;}
 .runhead .rh-logo{height:7.5mm;}
 
-/* ---------- sections ---------- */
-h2{
-  font-family:'Nunito',Arial,sans-serif;font-weight:800;
-  font-size:15pt;color:var(--navy);margin:0 0 1.5mm 0;line-height:1.15;
-}
-h2 .num{
-  display:inline-block;min-width:7mm;height:7mm;line-height:7mm;text-align:center;
-  background:var(--wizard);color:#fff;border-radius:2mm;font-size:9.5pt;margin-right:2.5mm;
-  vertical-align:2px;
-}
-h3{
-  font-family:'Nunito',Arial,sans-serif;font-weight:800;
-  font-size:10.5pt;color:var(--navy);margin:4mm 0 1.5mm 0;
-}
-.section{margin-bottom:5mm;}
-.rule{height:1.2mm;background:var(--wizard);width:22mm;border-radius:1mm;margin:0 0 3mm 0;}
-.rule.green{background:var(--green);}
-.rule.orange{background:var(--tangerine);}
-p{margin:0 0 2.5mm 0;}
-.lead{font-size:10pt;color:var(--muted);}
-ul{margin:0 0 2.5mm 0;padding-left:5mm;}
-li{margin-bottom:1.1mm;}
-li::marker{color:var(--wizard);}
-a{color:var(--wizard);}
-strong{font-weight:600;color:var(--navy);}
+/* contents */
+.toc{background:var(--tintn);border-radius:2.5mm;padding:3.5mm 5mm;margin:0 0 4.5mm 0;}
+.toc h4{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.8pt;letter-spacing:.14em;color:var(--navy);margin:0 0 2mm 0;}
+.toc .grid{display:flex;gap:8mm;}
+.toc .grid>div{flex:1;}
+.toc .row{display:flex;gap:2.5mm;font-size:8.8pt;margin-bottom:1.4mm;}
+.toc .row .n{font-family:'Nunito',Arial,sans-serif;font-weight:800;color:var(--wizard);min-width:5mm;}
 
-/* ---------- figures ---------- */
-.fig{float:right;margin:0 0 3mm 5mm;text-align:center;width:23mm;}
-.fig.left{float:left;margin:0 5mm 3mm 0;}
-.fig.wide{width:34mm;}
-.fig.inset{margin-right:7mm;}
+/* sections */
+h2{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:15pt;color:var(--navy);margin:0 0 0.5mm 0;line-height:1.12;}
+.pill{display:inline-block;font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.2pt;letter-spacing:.07em;color:#fff;padding:1mm 3mm;border-radius:6mm;margin-bottom:2mm;}
+.pill.o{background:var(--tangerine);} .pill.b{background:var(--wizard);} .pill.g{background:var(--green);}
+.sub{font-family:'Nunito',Arial,sans-serif;font-weight:700;font-size:8.4pt;color:var(--muted);margin:0 0 2mm 0;}
+.section{margin-bottom:4mm;}
+h3{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:10pt;color:var(--navy);margin:0 0 1.2mm 0;}
+p{margin:0 0 2mm 0;}
+ul{margin:0 0 2mm 0;padding-left:5mm;} li{margin-bottom:0.8mm;} li::marker{color:var(--wizard);}
+a{color:var(--wizard);} strong{font-weight:600;color:var(--navy);}
+
+/* figures */
+.fig{float:right;margin:0 0 2.5mm 5mm;text-align:center;width:22mm;}
+.fig.wide{width:29mm;} .fig.inset{margin-right:6mm;}
 .fig img{width:100%;display:block;}
-.fig figcaption{
-  font-size:6.6pt;color:var(--muted);margin-top:1mm;line-height:1.25;
-  font-family:'Nunito',Arial,sans-serif;font-weight:700;
-}
+.fig figcaption{font-size:6.6pt;color:var(--muted);margin-top:1mm;line-height:1.25;font-family:'Nunito',Arial,sans-serif;font-weight:700;}
 
-/* ---------- panels ---------- */
-.panel{border-radius:2.5mm;padding:4mm 5mm;margin:0 0 3mm 0;}
+/* panels */
+.panel{border-radius:2.5mm;padding:3mm 4.5mm;margin:0 0 2.5mm 0;}
 .panel.green{background:var(--tintg);border-left:1.5mm solid var(--green);}
 .panel.blue{background:var(--tintb);border-left:1.5mm solid var(--wizard);}
 .panel.orange{background:var(--tinto);border-left:1.5mm solid var(--tangerine);}
-.panel.navy{background:var(--tintn);border-left:1.5mm solid var(--navy);}
-.panel h3{margin-top:0;}
-.panel p:last-child,.panel ul:last-child{margin-bottom:0;}
+.panel h3{margin-top:0;} .panel p:last-child,.panel ul:last-child{margin-bottom:0;}
+.eyelabel{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.4pt;letter-spacing:.1em;color:var(--muted);margin:0 0 1mm 0;}
+.cols{display:flex;gap:5mm;} .cols>*{flex:1;min-width:0;}
 
-.cols{display:flex;gap:5mm;}
-.cols > *{flex:1;min-width:0;}
+/* learner quote */
+.quote{background:var(--tintb);border-left:1.5mm solid var(--wizard);border-radius:2.5mm;padding:3.5mm 5mm;margin:0 0 2.5mm 0;}
+.quote .q{font-style:italic;font-size:9.8pt;color:var(--ink);margin:0 0 2mm 0;}
+.quote .qby{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:8.4pt;color:var(--navy);}
 
-/* stretch and challenge tiles */
-.tiles{display:flex;gap:4mm;margin-top:2mm;}
-.tile{
-  flex:1;border-radius:2.5mm;padding:4mm;font-size:8.8pt;line-height:1.45;
-}
-.tile.t1{background:#a9dced;color:#12303c;}
-.tile.t2{background:#7c95c4;color:#fff;}
-.tile .tl{
-  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:8pt;
-  letter-spacing:.1em;display:block;margin-bottom:1.5mm;opacity:.8;
-}
+/* survey */
+.survey{background:var(--navy);color:#fff;border-radius:3mm;padding:5mm;display:flex;gap:6mm;align-items:center;margin:0 0 2mm 0;}
+.survey .txt{flex:1;min-width:0;}
+.survey h3{color:#fff;margin:0 0 1.5mm 0;font-size:11.5pt;}
+.survey .lead2{color:#c3cbdd;font-size:8.8pt;margin:0 0 2mm 0;}
+.survey ul{margin:0 0 3mm 0;} .survey li{color:#e7ecf6;} .survey li::marker{color:#7fd3a2;}
+.btn{display:inline-block;background:var(--tangerine);color:#fff;font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:8.6pt;padding:2mm 5mm;border-radius:6mm;text-decoration:none;}
+.survey .qr{flex:none;text-align:center;}
+.survey .qr img{width:26mm;height:26mm;background:#fff;padding:1.5mm;border-radius:2mm;display:block;}
+.survey .qr .cap{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7pt;letter-spacing:.12em;color:#9fb0cf;margin-top:1.5mm;}
 
-/* programme cards */
-.progs{display:flex;gap:4mm;margin-top:1mm;}
-.prog{
-  flex:1;border:0.4mm solid var(--rule);border-radius:2.5mm;overflow:hidden;
-  display:flex;flex-direction:column;
-}
-.prog .bar{height:3mm;}
-.prog .body{padding:4mm;flex:1;}
-.prog .when{
-  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.6pt;
-  letter-spacing:.1em;margin-bottom:1.5mm;
-}
-.prog h4{
-  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:11pt;
-  margin:0 0 1.5mm 0;color:var(--navy);line-height:1.15;
-}
-.prog p{font-size:8.6pt;margin:0;color:var(--muted);}
+/* diary */
+.diary{border:0.4mm solid var(--rule);border-radius:2.5mm;padding:3.5mm 5mm;margin:0 0 2.5mm 0;}
+.diary h3{margin:0 0 2mm 0;}
+.diary .grid{display:flex;flex-wrap:wrap;gap:1.4mm 6mm;}
+.diary .d{flex:0 0 44%;font-size:9pt;}
+.diary .d b{color:var(--wizard);font-family:'Nunito',Arial,sans-serif;font-weight:800;margin-right:1.5mm;}
 
-/* contact cards */
+/* contacts */
 .contacts{display:flex;gap:4mm;margin-top:1mm;}
-.card{
-  flex:1;background:var(--navy);color:#fff;border-radius:2.5mm;padding:4.5mm;
-}
-.card .role{
-  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.6pt;
-  letter-spacing:.1em;color:#7fd3a2;margin-bottom:1.5mm;
-}
-.card .nm{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:12pt;margin-bottom:1.5mm;}
-.card .det{font-size:8.6pt;color:#dbe1ee;line-height:1.6;}
-.card .det a{color:#9fd0ff;}
+.card{flex:1;border:0.4mm solid var(--rule);border-top:1.6mm solid var(--wizard);border-radius:2.5mm;padding:4mm;}
+.card.g{border-top-color:var(--green);}
+.card .role{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.2pt;letter-spacing:.06em;color:var(--muted);margin-bottom:1.5mm;}
+.card .nm{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:12pt;color:var(--navy);margin-bottom:1mm;}
+.card .det{font-size:8.6pt;color:var(--ink);line-height:1.55;}
 
-.signoff{
-  border-top:0.4mm solid var(--rule);margin-top:5mm;padding-top:4mm;
-  font-size:8.6pt;color:var(--muted);
-}
-.signoff .who{font-family:'Nunito',Arial,sans-serif;font-weight:800;color:var(--navy);font-size:10pt;}
+/* final thoughts */
+.final{background:var(--navy);color:#fff;border-radius:3mm;padding:4.5mm 6mm;margin:3.5mm 0 4.5mm 0;position:relative;}
+.final h3{color:#fff;font-size:13pt;margin:0 0 2mm 0;}
+.final p{color:#d6ddec;margin:0 0 2mm 0;max-width:135mm;}
+.final .by{font-family:'Nunito',Arial,sans-serif;font-weight:800;color:#7fd3a2;font-size:9pt;}
+.final img{position:absolute;right:6mm;bottom:4mm;width:20mm;}
 
-.draftnote{
-  border:0.4mm dashed var(--tangerine);background:#fff8f1;border-radius:2mm;
-  padding:3mm 4mm;font-size:8pt;color:#8a4a10;margin-top:3mm;
-}
+/* resources */
+.rescols{display:flex;gap:6mm;}
+.rescols>div{flex:1;}
+.resgroup{margin-bottom:3mm;}
+.resgroup h4{font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:9.2pt;color:var(--navy);margin:0 0 1.4mm 0;padding-left:2.5mm;border-left:1.5mm solid var(--green);}
+.resgroup p{font-size:8.6pt;margin:0 0 1.1mm 0;line-height:1.38;}
 .clear{clear:both;}
-
-/* incentive band with QR */
-.qrband{display:flex;gap:5mm;align-items:stretch;}
-.qrband .txt{flex:1;min-width:0;}
-.qrbox{
-  width:37mm;flex:none;background:var(--tintn);border-radius:2.5mm;
-  padding:3.5mm 3mm;text-align:center;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-}
-.qrbox img{width:27mm;height:27mm;display:block;}
-.qrbox .cap{
-  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:7.4pt;
-  color:var(--navy);margin-top:2mm;line-height:1.3;
-}
-.figrow{display:flex;gap:4mm;}
-.figrow .stat{
-  flex:1;background:var(--tintb);border-radius:2.5mm;padding:3mm;text-align:center;
-}
-.figrow .stat .big{
-  font-family:'Nunito',Arial,sans-serif;font-weight:800;font-size:16pt;color:var(--wizard);
-  line-height:1.1;
-}
-.figrow .stat .lbl{font-size:8pt;color:var(--ink);margin-top:1mm;line-height:1.35;}
 </style>
 </head>
 <body>
 
-<!-- ============================ PAGE 1 ============================ -->
+<!-- ===================== PAGE 1 ===================== -->
 <section class="page">
   <div class="masthead">
     <div class="mast-top">
       <div>
-        <p class="eyebrow">LEARNER EDITION &nbsp;|&nbsp; AUGUST 2026</p>
+        <p class="eyebrow">CoreEd Learner Newsletter</p>
         <h1>In The Loop</h1>
+        <p class="mast-issue">Issue: <strong>August 2026</strong></p>
       </div>
       <img class="mast-logo" src="assets/logo_white.png" alt="CoreEd">
     </div>
-    <p class="mast-sub">Your monthly update from CoreEd. News, dates and support for apprentices.</p>
+    <div class="mast-bar"><span class="o"></span><span class="b"></span><span class="g"></span></div>
   </div>
 
   <div class="pad">
     <div class="section">
-      <figure class="fig left" style="width:21mm">
+      <figure class="fig wide inset">
+        <img src="assets/characters/Mascot_Welcome.png" alt="">
+        <figcaption>Safety Guardian</figcaption>
+      </figure>
+      <p>Welcome to the August issue. It's the heart of summer. This month we're talking about your voice and how to use it, looking after wellbeing, including a topic we don't discuss enough, and the different ways brains work.</p>
+      <p>Whoever you are and wherever you've come from, you belong here at CoreEd.</p>
+      <p>Some tutors may be away over the summer, but the team is still here. Corrie, Ben, Priya and the Safety Guardian will point you to the useful bits.</p>
+      <div class="clear"></div>
+    </div>
+
+    <div class="toc">
+      <h4>IN THIS ISSUE</h4>
+      <div class="grid">
+        <div>
+          <div class="row"><span class="n">01</span> In Their Words</div>
+          <div class="row"><span class="n">02</span> Your Voice, Your Say</div>
+          <div class="row"><span class="n">03</span> Looking After You This Summer</div>
+          <div class="row"><span class="n">04</span> How Brains Work Differently</div>
+        </div>
+        <div>
+          <div class="row"><span class="n">05</span> Your Next Step</div>
+          <div class="row"><span class="n">06</span> Safeguarding Team Update</div>
+          <div class="row"><span class="n">07</span> Looking Out for One Another</div>
+          <div class="row"><span class="n">08</span> Support &amp; Resources</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="pill o">01 &nbsp;·&nbsp; LEARNER VOICE</span>
+      <figure class="fig inset" style="width:22mm">
+        <img src="assets/characters/Priya_Listening.png" alt="">
+        <figcaption>Priya Shah<br>Assessor</figcaption>
+      </figure>
+      <h2>In Their Words</h2>
+      <p class="sub">A learner's feedback this month</p>
+      <p>A lovely note from a learner this month, after a session that helped them get back on track:</p>
+      <div class="quote">
+        <p class="q">"Thank you Sharon &#128522; &ndash; found today's session really great, and appreciate your support with getting me back on track. Feeling very motivated again!"</p>
+        <div class="qby">&mdash; A CoreEd learner</div>
+      </div>
+      <p>Thank you for sharing, and well done Sharon. If a session helps, or does not, tell your tutor. It is how we make the next one even better.</p>
+      <div class="clear"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PAGE 2 ===================== -->
+<section class="page">
+  <div class="runhead">
+    <span class="rh-title">In The Loop &nbsp;|&nbsp; August 2026</span>
+    <img class="rh-logo" src="assets/logo_white.png" alt="CoreEd">
+  </div>
+
+  <div class="pad">
+    <div class="section">
+      <span class="pill o">02 &nbsp;·&nbsp; HAVE YOUR SAY</span>
+      <figure class="fig inset" style="width:21mm">
         <img src="assets/characters/Corrie_Happy.png" alt="">
         <figcaption>Corrie Patel<br>Apprentice</figcaption>
       </figure>
-      <p class="lead">Welcome to the August issue. This is a quieter month for a lot of us, with some teams on leave and workshops running a reduced timetable, so this issue is about keeping your training on track over the summer and knowing where to turn if you need support.</p>
-      <p>Inside you will find this month's inclusion date, a reminder about English and maths, the dates worth putting in your diary, and where to find support if you need it over the break. Nothing here needs a reply. Read the parts that are useful to you and keep the rest for when you need it.</p>
-      <p>If there is something you would like us to cover next time, email <a href="mailto:enquiries@CoreEd.co.uk">enquiries@CoreEd.co.uk</a>. We read every suggestion.</p>
-      <div class="clear"></div>
-    </div>
-
-    <div class="section">
-      <h2><span class="num">1</span>Celebrating our results</h2>
-      <div class="rule"></div>
-      <p>We want to mark what this cohort has achieved. These are our most recent confirmed figures, from June. Over half of those who achieved took a distinction or merit, and six apprentices reached the end of their programme. Behind each number is someone who kept going through a full apprenticeship while holding down a job.</p>
-
-      <div class="figrow">
-        <div class="stat">
-          <div class="big">53%</div>
-          <div class="lbl">Achieved a distinction or merit</div>
-        </div>
-        <div class="stat">
-          <div class="big">6</div>
-          <div class="lbl">Apprenticeships completed in June</div>
-        </div>
-      </div>
-
-      <div class="panel blue" style="margin-top:3.5mm">
-        <p style="margin:0">Every one of those results is a piece of work fitted around a job and everything else life asks of you. If you have finished recently, well done, and do keep your certificate somewhere safe. If you are still going, the same steady effort is what gets you there, and your tutor is there for the stretches that feel harder than the rest. If you are close to finishing, tell your tutor what is left and you can plan the last steps together.</p>
-      </div>
-
-      <div class="panel green">
-        <p style="margin:0"><strong>Finishing this summer?</strong> Tell us where you are heading next, whether that is a job, more training, or something else. We like to hear how it turns out, and it helps us support the learners coming up behind you.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ PAGE 2 ============================ -->
-<section class="page">
-  <div class="runhead">
-    <span class="rh-title">In The Loop &nbsp;|&nbsp; August 2026</span>
-    <img class="rh-logo" src="assets/logo_white.png" alt="CoreEd">
-  </div>
-
-  <div class="pad">
-    <div class="section">
-      <h2><span class="num">2</span>Inclusion this month</h2>
-      <div class="rule"></div>
-      <figure class="fig inset">
-        <img src="assets/characters/Ben_Encouraging.png" alt="">
-        <figcaption>Ben Carter<br>Mentor</figcaption>
-      </figure>
-      <p>International Youth Day falls on Wednesday 12 August. It is a United Nations day that recognises the part young people play in their communities and at work. This year's theme is "Different Contexts, Common Aspirations", a reminder that although our circumstances differ, what we want from work and study is often the same: to be respected, to keep learning, and to get on.</p>
-      <p>As an apprentice you are part of that. If there is something about your training that would work better for you, whether that is how sessions are timed or how feedback reaches you, tell your tutor. Small changes are easier to make than you might think, and the earlier you raise them the more we can do.</p>
+      <h2>Your Voice, Your Say</h2>
+      <p class="sub">Speaking up, and the survey that shapes CoreEd</p>
+      <p>12 August is International Youth Day, a good reminder that your generation's voice matters. Advocacy just means speaking up, for yourself and for others. At CoreEd, the simplest way to do that is the learner survey: we read every response, and it shapes what we do next. Not many of you have filled it in yet, so this is your nudge.</p>
       <div class="clear"></div>
 
-      <div class="panel blue">
-        <h3>Mark the day</h3>
-        <p style="margin:0">Wednesday 12 August 2026. If your workplace runs a staff network or a wellbeing group, it is a good week to ask what they have planned, or to suggest something yourself.</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2><span class="num">3</span>Functional Skills: English and maths</h2>
-      <div class="rule"></div>
-      <figure class="fig left inset" style="width:22mm">
-        <img src="assets/characters/Priya_Supportive.png" alt="">
-        <figcaption>Priya Shah<br>Assessor</figcaption>
-      </figure>
-      <p>Functional Skills English and maths are part of many apprenticeships, and the summer is a good time to check where you stand before things get busy again in September. If you have a recent or older qualification that might count towards yours, bring the certificate to your tutor so it can be logged.</p>
-      <p>Whether you need to complete Functional Skills English and maths depends on your age and the type of apprenticeship you are on, and the rules have changed in recent years. Please do not assume you are exempt. Check with your tutor, who can confirm what applies to you and book any exams you still have left.</p>
-      <div class="clear"></div>
-
-      <div class="cols">
-        <div class="panel green">
-          <h3>If you have exams to sit</h3>
+      <div class="survey">
+        <div class="txt">
+          <h3>Your say, in about two minutes</h3>
+          <p class="lead2">Not sure where to start? Tell us:</p>
           <ul>
-            <li>Book early. Summer sittings fill up.</li>
-            <li>Ask your tutor for a past paper to practise with.</li>
+            <li>One thing CoreEd does well.</li>
+            <li>One thing we could do better.</li>
+            <li>One thing that would make your week easier.</li>
           </ul>
+          <a class="btn" href="https://qualityhero.co.uk/f/40e945db4a76a23be6cf0b3dfe2147da7e59c95bb5b46ea9">Open the survey</a>
         </div>
-        <div class="panel navy">
-          <h3>If you are not sure</h3>
-          <ul>
-            <li>One message to your tutor settles it.</li>
-            <li>We would rather check twice than miss a deadline.</li>
-          </ul>
+        <div class="qr">
+          <img src="survey_qr.png" alt="">
+          <div class="cap">SCAN ME</div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ PAGE 3 ============================ -->
-<section class="page">
-  <div class="runhead">
-    <span class="rh-title">In The Loop &nbsp;|&nbsp; August 2026</span>
-    <img class="rh-logo" src="assets/logo_white.png" alt="CoreEd">
-  </div>
-
-  <div class="pad">
-    <div class="section">
-      <h2><span class="num">4</span>Dates for your diary</h2>
-      <div class="rule"></div>
-      <p>A few dates worth noting this month, and a couple of things worth sorting before the summer slows down.</p>
-      <ul>
-        <li><strong>Wednesday 12 August:</strong> International Youth Day.</li>
-        <li><strong>Thursday 13 August:</strong> A-level results day.</li>
-        <li><strong>Wednesday 19 August:</strong> World Humanitarian Day.</li>
-        <li><strong>Thursday 20 August:</strong> GCSE results day.</li>
-        <li><strong>Into September:</strong> tutor and workshop timetables change over the summer. Check your calendar, or ask your tutor for the term dates once term restarts.</li>
-      </ul>
-
-      <div class="panel blue">
-        <h3>Before the break</h3>
-        <p style="margin:0">Keep any certificates somewhere safe. If you use an online portal for your work, check you can still log in before term restarts. And note when your tutor is back in September, so you know who to speak to and when. It takes five minutes now and saves a scramble later.</p>
       </div>
     </div>
 
     <div class="section">
-      <h2><span class="num">5</span>Safeguarding team update</h2>
-      <div class="rule orange"></div>
+      <span class="pill g">03 &nbsp;·&nbsp; WELLBEING</span>
       <figure class="fig wide inset">
         <img src="assets/characters/Mascot_Safety_Tip.png" alt="">
         <figcaption>Safety Guardian</figcaption>
       </figure>
-      <p>Summer can feel different. Routines change, and it is easy to lose touch when things are quieter. If something is on your mind, at work or outside it, you can talk to us, and the sooner the better.</p>
-      <p>Contact Jeannette Adrian, our Designated Safeguarding Lead, on 07557 093701 or at <a href="mailto:jeannette@CoreEd.co.uk">jeannette@CoreEd.co.uk</a>. We will listen and agree what happens next with you. Raising something with us does not put your apprenticeship at risk. Airam Neesa, our Deputy, is on the back page.</p>
+      <h2>Looking After You This Summer</h2>
+      <p class="sub">Including a conversation worth having</p>
+      <p>Keep the summer basics going: water, sleep, fresh air and a bit of a break. This month we are also putting a plainer light on one topic that carries needless stigma.</p>
       <div class="clear"></div>
 
-      <div class="panel orange">
-        <p style="margin:0"><strong>Prevent.</strong> CoreEd has a duty under the government's Prevent programme to help keep people safe from being drawn into extremism. If you are worried that you, or someone you know, is being pulled towards extreme views, tell the safeguarding team. In an emergency, always call 999.</p>
+      <div class="panel green">
+        <p class="eyelabel">THIS MONTH'S FOCUS</p>
+        <h3>Menopause: let's talk about it</h3>
+        <p style="margin:0">Menopause is a natural stage of life, but it's still something people feel awkward raising. Its effects, on sleep, mood, focus and more, can show up at work and in study. Being understanding, whether it's you, a colleague or someone at home, makes a real difference. Support is out there: your GP, the NHS, and menopauseinfo.org are good places to start.</p>
+      </div>
+
+      <div class="panel blue">
+        <h3>Feeling the pressure?</h3>
+        <p style="margin:0">Summer can be a real mix, busy for some, quiet for others. Whatever you're juggling, be kind to yourself and take breaks. If things ever feel heavy, talk to your tutor, and Samaritans (116 123) and Shout (text SHOUT to 85258) are there any time.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================ PAGE 4 ============================ -->
+<!-- ===================== PAGE 3 ===================== -->
 <section class="page">
   <div class="runhead">
     <span class="rh-title">In The Loop &nbsp;|&nbsp; August 2026</span>
@@ -368,57 +256,139 @@ strong{font-weight:600;color:var(--navy);}
 
   <div class="pad">
     <div class="section">
-      <h2><span class="num">6</span>Support and resources</h2>
-      <div class="rule"></div>
-      <p>You do not have to wait for a session to talk to someone. These services are free and open to anyone, at any time. Save the ones that feel useful to you now, so you have them if you ever need them later.</p>
+      <span class="pill o">04 &nbsp;·&nbsp; INCLUSION</span>
+      <figure class="fig inset" style="width:22mm">
+        <img src="assets/characters/Priya_Supportive.png" alt="">
+        <figcaption>Priya Shah<br>Assessor</figcaption>
+      </figure>
+      <h2>How Brains Work Differently</h2>
+      <p class="sub">Dyspraxia, dyscalculia and everyday support</p>
+      <p>This month we're raising awareness of dyspraxia and dyscalculia, two common ways of learning and thinking. Dyspraxia can affect coordination, organisation and planning; dyscalculia affects working with numbers. Neither has anything to do with how clever you are.</p>
+      <div class="clear"></div>
 
       <div class="cols">
-        <div class="panel green">
-          <h3>Someone to talk to</h3>
-          <ul>
-            <li><strong>Samaritans.</strong> Call 116 123, free, day or night.</li>
-            <li><strong>Shout.</strong> Text the word SHOUT to 85258, free, 24 hours.</li>
-          </ul>
+        <div class="panel orange">
+          <h3>Small adjustments, big difference</h3>
+          <p style="margin:0">A bit of extra time, clear step-by-step instructions, checklists, or a different way to show what you know can all help. What works is personal, so there's no one-size-fits-all.</p>
         </div>
-        <div class="panel blue">
-          <h3>If you need health help</h3>
-          <ul>
-            <li><strong>NHS 111.</strong> Call 111 and choose the mental health option.</li>
-            <li><strong>Your GP.</strong> Still the best route for anything ongoing.</li>
-          </ul>
+        <div class="panel orange">
+          <h3>Tell your tutor</h3>
+          <p style="margin:0">If you find some things harder than they feel they should be, you're not alone, and it's worth a chat. Ask about reasonable adjustments. The conversation is confidential, and asking is always welcome.</p>
         </div>
-      </div>
-
-      <div class="panel orange">
-        <p style="margin:0"><strong>In immediate danger?</strong> If you or someone else is at risk right now, call 999. Do not wait.</p>
       </div>
     </div>
 
     <div class="section">
-      <h2><span class="num">7</span>We are here to help</h2>
-      <div class="rule"></div>
+      <span class="pill b">05 &nbsp;·&nbsp; NEXT STEPS</span>
+      <figure class="fig inset" style="width:22mm">
+        <img src="assets/characters/Ben_Explaining.png" alt="">
+        <figcaption>Ben Carter<br>Mentor</figcaption>
+      </figure>
+      <h2>Your Next Step</h2>
+      <p class="sub">Keep your momentum going</p>
+      <p>You're already well into your apprenticeship, so the aim over summer is simple: keep your momentum up. If English or maths Functional Skills are still on your list, your tutor can talk you through what applies to you and plan the next steps together. Whatever stage you're at, they're here to help you move forward.</p>
+      <div class="clear"></div>
+
+      <div class="diary">
+        <h3>Dates for your diary &ndash; August</h3>
+        <div class="grid">
+          <div class="d"><b>12 Aug</b> International Youth Day</div>
+          <div class="d"><b>19 Aug</b> World Humanitarian Day</div>
+          <div class="d"><b>31 Aug</b> Summer Bank Holiday (England &amp; Wales)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="pill o">06 &nbsp;·&nbsp; IMPORTANT INFO</span>
+      <h2>Safeguarding Team Update</h2>
+      <p class="sub">Know who to turn to, support is here all summer</p>
+      <p>Safeguarding is everyone's responsibility, and the team is reachable over the summer break. Whether it's about your own wellbeing, someone else's safety, or a difficult time, please reach out. Speaking up early is always the right thing to do.</p>
       <div class="contacts">
         <div class="card">
-          <div class="role">DESIGNATED SAFEGUARDING LEAD &amp; WELLBEING SUPPORT</div>
+          <div class="role">DESIGNATED SAFEGUARDING LEAD (DSL) &amp; WELLBEING SUPPORT</div>
           <div class="nm">Jeannette Adrian</div>
           <div class="det">07557 093701<br><a href="mailto:jeannette@CoreEd.co.uk">jeannette@CoreEd.co.uk</a></div>
         </div>
-        <div class="card">
+        <div class="card g">
           <div class="role">DEPUTY DESIGNATED SAFEGUARDING LEAD</div>
           <div class="nm">Airam Neesa</div>
           <div class="det">07912 342 367<br><a href="mailto:airam@CoreEd.co.uk">airam@CoreEd.co.uk</a></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="panel navy" style="margin-top:3.5mm">
-        <p style="margin:0"><strong>General enquiries</strong> &nbsp;
-        <a href="mailto:enquiries@CoreEd.co.uk">enquiries@CoreEd.co.uk</a> &nbsp;|&nbsp;
-        <a href="https://www.CoreEd.co.uk">www.CoreEd.co.uk</a><br>
-        The Media Centre, 7 Northumberland Street, Huddersfield, HD1 1RL</p>
+<!-- ===================== PAGE 4 ===================== -->
+<section class="page">
+  <div class="runhead">
+    <span class="rh-title">In The Loop &nbsp;|&nbsp; August 2026</span>
+    <img class="rh-logo" src="assets/logo_white.png" alt="CoreEd">
+  </div>
+
+  <div class="pad">
+    <div class="section">
+      <span class="pill b">07 &nbsp;·&nbsp; SAFEGUARDING &amp; PREVENT</span>
+      <figure class="fig wide inset">
+        <img src="assets/characters/Mascot_Warning.png" alt="">
+        <figcaption>Safety Guardian</figcaption>
+      </figure>
+      <h2>Looking Out for One Another</h2>
+      <p class="sub">Staying safe, online and off</p>
+      <p>Summer often means more time online. Part of keeping everyone safe is something called Prevent. Here's what it means, and who to talk to if something doesn't feel right.</p>
+      <div class="clear"></div>
+
+      <div class="cols">
+        <div class="panel blue">
+          <h3>Support, not suspicion</h3>
+          <p style="margin:0">Prevent is part of safeguarding. It's about helping anyone who might be at risk of being pulled towards extremism or hateful views, the same way we'd help with any other worry. It isn't about getting anyone into trouble; it's about getting the right support early.</p>
+        </div>
+        <div class="panel blue">
+          <h3>Think before you share</h3>
+          <p style="margin:0">Not everything online is true or safe. If a post, message or account makes you uneasy, or pressures you to do or believe something, step back and talk to someone you trust. Keep your details private and be kind in the group chat.</p>
+        </div>
       </div>
+      <div class="panel orange">
+        <p style="margin:0"><strong>Worried about something?</strong> You can speak to Jeannette or Airam (above), or contact the ACT Early support line on 0800 011 3764 or at <a href="https://actearly.uk">actearly.uk</a>. In an emergency, always call 999.</p>
+      </div>
+    </div>
 
-      <div class="signoff">
-        <span class="who">The CoreEd Team</span> &nbsp; Have a good August. We will see you back in the loop next month.
+    <div class="final">
+      <img src="assets/characters/Mascot_Celebration.png" alt="">
+      <h3>Final thoughts</h3>
+      <p>Enjoy the rest of your summer. Keep your momentum going, look after yourselves and each other, and do have your say in the survey too.</p>
+      <div class="by">&mdash; The CoreEd Team</div>
+    </div>
+
+    <div class="section">
+      <span class="pill g">08 &nbsp;·&nbsp; SUPPORT &amp; RESOURCES</span>
+      <h2>Support &amp; Resources</h2>
+      <div class="rescols">
+        <div>
+          <div class="resgroup">
+            <h4>Study &amp; next steps</h4>
+            <p><strong>Your CoreEd tutor</strong> &ndash; your first port of call for options, Functional Skills and one-to-one help.</p>
+            <p><strong>National Careers Service</strong> &ndash; free careers advice and a helpline (nationalcareers.service.gov.uk).</p>
+            <p><strong>GOV.UK Apprenticeships</strong> &ndash; how apprenticeships and assessment work (gov.uk).</p>
+          </div>
+          <div class="resgroup">
+            <h4>Inclusion &amp; learning</h4>
+            <p><strong>Dyspraxia Foundation</strong> &ndash; information and support (dyspraxiafoundation.org.uk).</p>
+            <p><strong>British Dyslexia Association</strong> &ndash; guidance on dyscalculia and more (bdadyslexia.org.uk).</p>
+            <p><strong>Your CoreEd tutor</strong> &ndash; to arrange a reasonable adjustment or talk anything through.</p>
+          </div>
+        </div>
+        <div>
+          <div class="resgroup">
+            <h4>Wellbeing &amp; health</h4>
+            <p><strong>NHS, menopause</strong> &ndash; symptoms, treatments and advice (nhs.uk).</p>
+            <p><strong>Menopause information</strong> &ndash; support and stigma-busting resources (menopauseinfo.org).</p>
+            <p><strong>Samaritans</strong> &ndash; free, 24/7; call 116 123 in the UK.</p>
+            <p><strong>Shout</strong> &ndash; free 24/7 text support; text SHOUT to 85258.</p>
+            <p><strong>Mind</strong> &ndash; mental health advice and local services (mind.org.uk).</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
