@@ -52,4 +52,5 @@ font paths accordingly, e.g.
   embedded images blend seamlessly into the slide (no visible card edge).
 - Use Wizard Blue / Tangerine / Sea Green for illustration accents.
 - Keep the voice plain, direct and energetic (CoreEd tone of voice).
-- Close on the tagline **"Bridging talent and industry through skills"** + `CoreEd.com`.
+- Close on the tagline **"Bridging talent and industry through skills"** + `CoreEd.co.uk`.
+- CoreEd's website and email addresses use the **.co.uk** domain (e.g. CoreEd.co.uk), and the Instagram handle is **@coreedlimited**.
