@@ -9,7 +9,8 @@ CoreEd Visual Identity Guidelines (v1.0).
 |------|---------|
 | `config.example.json` | A starter config with the CoreEd profile, brand theme, and Rubik fonts wired up. Copy it and replace the `slides`. |
 | `avatar.png` | The CoreEd logo device (tri-colour aperture on Midnight Blue), used as the profile picture. |
-| `wordmark.png` | The full "CoreEd" wordmark (Midnight Blue on transparent-ish white), for use as an embedded image on a title/CTA slide if wanted. |
+| `logo-white.png` | The full "CoreEd" wordmark in white with the tri-colour device, on a **transparent** background. Drops straight onto the Midnight Blue theme — use it for titled graphics, title/CTA slides, and framed photos. |
+| `wordmark.png` | The full "CoreEd" wordmark in Midnight Blue on white, for use on light backgrounds. |
 | `fonts/` | Rubik (Regular/Medium/Bold/Black), CoreEd's body typeface, under the SIL Open Font License (`fonts/OFL.txt`). |
 
 ## Brand palette (from the guidelines)
