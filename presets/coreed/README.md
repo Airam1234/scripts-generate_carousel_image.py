@@ -7,6 +7,7 @@ CoreEd Visual Identity Guidelines (v1.0).
 
 | File | Purpose |
 |------|---------|
+| `BRAND.md` | **CoreEd brand rules** (from the Brand Pack Addendum v1.0): colour-contrast requirements, tone of voice, photography direction, social sizes, templates, accessibility. Read this before producing any CoreEd content. |
 | `config.example.json` | A starter config with the CoreEd profile, brand theme, and Rubik fonts wired up. Copy it and replace the `slides`. |
 | `avatar.png` | The CoreEd logo device (tri-colour aperture on Midnight Blue), used as the profile picture. |
 | `logo-white.png` | The full "CoreEd" wordmark in white with the tri-colour device, on a **transparent** background. Drops straight onto the Midnight Blue theme — use it for titled graphics, title/CTA slides, and framed photos. |
@@ -48,6 +49,12 @@ font paths accordingly, e.g.
 
 ## Tips for on-brand carousels
 
+- **Read `BRAND.md` first** — it carries the mandatory colour-contrast rules and
+  tone-of-voice guidance.
+- **Tangerine is an accent, never a text colour.** It fails contrast on white at
+  any size. Where text must sit on Tangerine, that text is Midnight Blue, never
+  white. Keep headlines and body in white (on Midnight) or Midnight (on light).
+- No more than two palette colours plus Midnight Blue on any single slide.
 - Draw any custom illustrations / animated slides on the same `#232b50` background so
   embedded images blend seamlessly into the slide (no visible card edge).
 - Use Wizard Blue / Tangerine / Sea Green for illustration accents.

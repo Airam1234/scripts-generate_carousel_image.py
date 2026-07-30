@@ -210,7 +210,7 @@ Create the config file at `workspace/<date>/<title>/config.json`:
   }
   ```
 
-**Brand presets:** ready-made brand configs live under `presets/`. For example, `presets/coreed/` bundles the CoreEd theme, logo avatar, and Rubik fonts — copy `presets/coreed/config.example.json`, replace the `slides`, and generate. See `presets/coreed/README.md`.
+**Brand presets:** ready-made brand configs live under `presets/`. For example, `presets/coreed/` bundles the CoreEd theme, logo avatar, and fonts — copy `presets/coreed/config.example.json`, replace the `slides`, and generate. See `presets/coreed/README.md`. A preset may also ship a `BRAND.md` of brand rules (colour-contrast requirements, tone of voice, photography direction, social sizes, accessibility) — read it before producing content for that brand.
 
 **Video slides:**
 - Use `"video": "path/to/video.mp4"` at the slide level (no `tweets` needed)
