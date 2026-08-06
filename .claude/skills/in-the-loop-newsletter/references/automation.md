@@ -100,6 +100,14 @@ If it is empty or missing, the run should still produce a draft from the standin
 
 The **results figures are the exception** — they do not come from the inbox. They live in the SLT monthly data pack on SharePoint, reached through the Microsoft 365 connector. `references/data-sources.md` gives the library, folder, filename pattern and which cells to read. A headless run needs that connector authenticated, or it should leave the figures as placeholders and flag them.
 
+## Current sending arrangement (learner edition)
+
+Standing recipients as of August 2026: venetia@, jeannette@, philip@, garry@ and yasmin@ — all `@CoreEd.co.uk`. Confirm with Airam before widening the list.
+
+The Microsoft 365 connector's Outlook tools **cannot attach files**, and its OneDrive upload path is capped at 1 MB — smaller than a finished issue. So the working pattern is: on the 5th, create an Outlook draft addressed to the recipients with the agreed subject and body, deliver the two finished files to Airam in chat, and Airam attaches and sends. Do not send an email whose body says "attached" without attachments, and do not link to a OneDrive copy without confirming it is the current version — an out-of-date copy with a wrong awareness date has already been caught there once.
+
+Subject pattern: `In The Loop — <Month> <Year> (learner newsletter)`.
+
 ## Notifying a human
 
 Add a step after the draft. Any of these work:

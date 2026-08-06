@@ -39,7 +39,9 @@ Follow `references/house-style.md`. The short version: plain British English, co
 
 ### 3. Build the HTML
 
-Copy `templates/issue.html` to `work/issue.html` and edit it. The template carries the CSS — brand colours as variables, page boxes, panels, figure floats, programme cards, contact cards. Do not rewrite the CSS from scratch.
+For a **learner issue**, copy `templates/issue-learner-rich.html` to `work/issue.html` and `templates/content-learner-rich.js` to `work/content.js`, then replace the month-specific content. This is the approved August 2026 format — masthead with eyebrow and colour bar, contents box, numbered pill sections (learner voice quote, survey with QR, wellbeing focus, inclusion, next steps + diary, safeguarding contacts, Prevent, final thoughts, grouped resources) — and it is the standard; do not fall back to the plainer layout. It runs to four pages at brand type sizes. If the issue carries a QR code, regenerate it with `segno` into `work/` and keep the full address as a live link in the Word version.
+
+For an employer issue, start from `templates/issue.html`. Either way the template carries the CSS — brand colours as variables, page boxes, panels, figure floats, cards. Do not rewrite the CSS from scratch.
 
 Keep to the page budget in `references/layout.md`. Content grows every issue and the page count is the first thing that slips.
 
@@ -97,8 +99,10 @@ The standing pattern is **draft on the 1st, human review, send on the 5th**. The
 | `references/house-style.md` | Before writing any copy |
 | `references/layout.md` | Before building the HTML, and when trimming |
 | `references/automation.md` | Setting up scheduling or headless runs |
-| `templates/issue.html` | Starting a new issue |
-| `templates/content.js` | Starting the accessible version |
+| `templates/issue-learner-rich.html` | Starting a learner issue (the approved standard format) |
+| `templates/content-learner-rich.js` | Starting the learner accessible version |
+| `templates/issue.html` | Starting an employer issue |
+| `templates/content.js` | Starting the employer accessible version |
 | `scripts/setup.sh` | First run on a machine |
 | `scripts/render_pdf.py` | Rendering the PDF |
 | `scripts/build_docx.js` | Building the Word version |
