@@ -1,5 +1,5 @@
 /**
- * Accessible Word version of In The Loop, August 2026 (learner edition).
+ * Accessible Word version of In The Loop, September 2026 (learner edition).
  * Wording is kept identical to work/issue.html — the two files are emailed
  * together and read as one thing. build_docx.js turns this into real heading
  * styles, alt text and live links. The QR code in the PDF is replaced here by
@@ -7,17 +7,17 @@
  */
 module.exports = {
   title: 'In The Loop',
-  issue: 'CoreEd Learner Newsletter  |  Issue: August 2026',
+  issue: 'CoreEd Learner Newsletter  |  Issue: September 2026',
   strapline: 'A monthly update for CoreEd learners.',
-  description: 'Accessible version of the In The Loop learner newsletter, August 2026.',
+  description: 'Accessible version of the In The Loop learner newsletter, September 2026.',
 
   sections: [
     {
       heading: 'Welcome',
       blocks: [
-        { type: 'p', text: 'Welcome to the August issue. It’s the heart of summer. This month we’re talking about your voice and how to use it, looking after wellbeing, including a topic we don’t discuss enough, and the different ways brains work.' },
+        { type: 'p', text: 'Welcome to the September issue. The new academic year is under way, and there’s plenty in this one: results worth celebrating, a conversation that matters more than any other this month, National Inclusion Week, and keeping your momentum into autumn.' },
         { type: 'p', text: 'Whoever you are and wherever you’ve come from, you belong here at CoreEd.' },
-        { type: 'p', text: 'Some tutors may be away over the summer, but the team is still here. Corrie, Ben, Priya and the Safety Guardian will point you to the useful bits.' },
+        { type: 'p', text: 'As ever, Corrie, Ben, Priya and the Safety Guardian will point you to the useful bits.' },
         {
           type: 'image', file: 'characters/Mascot_Welcome.png', width: 90, height: 68,
           name: 'CoreEd Safety Guardian mascot',
@@ -26,21 +26,40 @@ module.exports = {
         },
         { type: 'h2', text: 'In this issue' },
         { type: 'bullets', items: [
-          '01 — Your Voice, Your Say',
-          '02 — Looking After You This Summer',
-          '03 — How Brains Work Differently',
-          '04 — Your Next Step',
-          '05 — Safeguarding Team Update',
-          '06 — Looking Out for One Another',
-          '07 — Support & Resources',
+          '01 — In Their Words',
+          '02 — Your Voice, Your Say',
+          '03 — Talking Saves Lives',
+          '04 — Building Trust Together',
+          '05 — Your Next Step',
+          '06 — Safeguarding Team Update',
+          '07 — Looking Out for One Another',
+          '08 — Support & Resources',
         ]},
       ],
     },
     {
-      heading: '01. Your Voice, Your Say',
+      heading: '01. In Their Words',
       blocks: [
-        { type: 'p', text: 'Speaking up, and the survey that shapes CoreEd.' },
-        { type: 'p', text: '12 August is International Youth Day, a good reminder that your generation’s voice matters. Advocacy just means speaking up, for yourself and for others. At CoreEd, the simplest way to do that is the learner survey: we read every response, and it shapes what we do next. Not many of you have filled it in yet, so this is your nudge.' },
+        { type: 'p', text: 'This space is yours.' },
+        { type: 'p', text: 'Each issue, this section carries a learner’s own words. We don’t have a quote to share this month, so instead, here’s the invitation: if a session helped, if something finally clicked, or if something needs to change, tell your tutor. With your permission, your words could open the October issue.' },
+        { type: 'p', text: 'Anything from a sentence to a few lines works, and you can stay anonymous if you prefer. What you say gets read, and it shapes how we teach.' },
+        { type: 'callout', colour: 'blue', text: [
+          'Something worth sharing while we wait: seven learners completed their apprenticeship in July, six passes and one distinction, taking this academic year’s total to 39 completions. Of those 39, almost half, 46%, were awarded a distinction.',
+          '— July figures, CoreEd governance data',
+        ]},
+        {
+          type: 'image', file: 'characters/Priya_Listening.png', width: 60, height: 108,
+          name: 'Priya Shah, assessor',
+          description: 'Illustration of Priya Shah, a CoreEd assessor, listening attentively.',
+          caption: 'Illustration: Priya Shah, one of our assessors.',
+        },
+      ],
+    },
+    {
+      heading: '02. Your Voice, Your Say',
+      blocks: [
+        { type: 'p', text: 'The survey that shapes CoreEd.' },
+        { type: 'p', text: 'A new academic year is a good moment to tell us how things are going. We read every survey response, and what you tell us shapes what we do next: it is the most direct route from your experience to our decisions. It takes about two minutes, and it can be anonymous.' },
         { type: 'h2', text: 'Your say, in about two minutes' },
         { type: 'p', text: 'Not sure where to start? Tell us: one thing CoreEd does well, one thing we could do better, and one thing that would make your week easier.' },
         {
@@ -51,39 +70,30 @@ module.exports = {
           after: '. The QR code in the printed version links to the same address, so you can scan it with your phone camera or ask your tutor to send it over.',
         },
         {
-          type: 'image', file: 'characters/Corrie_Happy.png', width: 60, height: 90,
+          type: 'link',
+          before: 'We’re on Instagram too. Follow @coreedlimited at ',
+          text: 'instagram.com/coreedlimited',
+          href: 'https://www.instagram.com/coreedlimited',
+          after: ' for day-to-day updates, celebrations and reminders between issues.',
+        },
+        {
+          type: 'image', file: 'characters/Corrie_Proud.png', width: 60, height: 90,
           name: 'Corrie Patel, apprentice',
-          description: 'Illustration of Corrie Patel, a CoreEd apprentice, smiling.',
+          description: 'Illustration of Corrie Patel, a CoreEd apprentice, standing proudly.',
           caption: 'Illustration: Corrie Patel, one of our apprentices.',
         },
       ],
     },
     {
-      heading: '02. Looking After You This Summer',
+      heading: '03. Talking Saves Lives',
       blocks: [
-        { type: 'p', text: 'Including a conversation worth having.' },
-        { type: 'p', text: 'Keep the summer basics going: water, sleep, fresh air and a bit of a break. This month we are also putting a plainer light on one topic that carries needless stigma.' },
-        { type: 'h2', text: 'Menopause: let’s talk about it' },
-        { type: 'p', text: 'Menopause is a natural stage of life, but it’s still something people feel awkward raising. Its effects, on sleep, mood, focus and more, can show up at work and in study. Being understanding, whether it’s you, a colleague or someone at home, makes a real difference. Support is out there: your GP, the NHS, and menopauseinfo.org are good places to start.' },
-        { type: 'h2', text: 'Feeling the pressure?' },
-        { type: 'callout', colour: 'blue', text: 'Summer can be a real mix, busy for some, quiet for others. Whatever you’re juggling, be kind to yourself and take breaks. If things ever feel heavy, talk to your tutor, and Samaritans (116 123) and Shout (text SHOUT to 85258) are there any time.' },
-        {
-          type: 'image', file: 'characters/Mascot_Safety_Tip.png', width: 90, height: 69,
-          name: 'CoreEd Safety Guardian mascot',
-          description: 'Illustration of the CoreEd Safety Guardian sharing a wellbeing tip.',
-          caption: 'Illustration: the CoreEd Safety Guardian, sharing a wellbeing tip.',
-        },
-      ],
-    },
-    {
-      heading: '03. How Brains Work Differently',
-      blocks: [
-        { type: 'p', text: 'Dyspraxia, dyscalculia and everyday support.' },
-        { type: 'p', text: 'This month we’re raising awareness of dyspraxia and dyscalculia, two common ways of learning and thinking. Dyspraxia can affect coordination, organisation and planning; dyscalculia affects working with numbers. Neither has anything to do with how clever you are.' },
-        { type: 'h2', text: 'Small adjustments, big difference' },
-        { type: 'p', text: 'A bit of extra time, clear step-by-step instructions, checklists, or a different way to show what you know can all help. What works is personal, so there’s no one-size-fits-all.' },
-        { type: 'h2', text: 'Tell your tutor' },
-        { type: 'p', text: 'If you find some things harder than they feel they should be, you’re not alone, and it’s worth a chat. Ask about reasonable adjustments. The conversation is confidential, and asking is always welcome.' },
+        { type: 'p', text: 'World Suicide Prevention Day, 10 September.' },
+        { type: 'p', text: '10 September is World Suicide Prevention Day. This year’s theme is about changing the narrative on suicide: replacing silence and awkwardness with open, honest conversations. That starts with ordinary people, not experts.' },
+        { type: 'h2', text: 'It’s okay to talk about it' },
+        { type: 'p', text: 'If you’re struggling, you are not alone, and you don’t have to work it out by yourself. Talking about how you feel, including suicidal thoughts, does not make things worse. It is usually the first step to feeling less alone. And if you’re worried about a friend or a colleague, it’s okay to ask them directly how they’re doing. You don’t need the perfect words; listening without judgement matters far more.' },
+        { type: 'h2', text: 'Support that’s there any time' },
+        { type: 'callout', colour: 'blue', text: 'Samaritans: call 116 123, free, 24/7. Shout: text SHOUT to 85258. HOPELINE247 (for under-35s): call 0800 068 4141 or text 88247, any hour, any day. If someone is in immediate danger, call 999. And your tutor is always a safe place to start.' },
+        { type: 'p', text: 'Youth Mental Health Day follows on 18 September with the theme #BuildFutureYou: a nudge that whatever the future holds, the next small step towards it is yours to take.' },
         {
           type: 'image', file: 'characters/Priya_Supportive.png', width: 60, height: 92,
           name: 'Priya Shah, assessor',
@@ -93,42 +103,62 @@ module.exports = {
       ],
     },
     {
-      heading: '04. Your Next Step',
+      heading: '04. Building Trust Together',
       blocks: [
-        { type: 'p', text: 'Keep your momentum going.' },
-        { type: 'p', text: 'You’re already well into your apprenticeship, so the aim over summer is simple: keep your momentum up. If English or maths Functional Skills are still on your list, your tutor can talk you through what applies to you and plan the next steps together. Whatever stage you’re at, they’re here to help you move forward.' },
-        { type: 'h2', text: 'Dates for your diary — August' },
-        { type: 'bullets', items: [
-          '12 August — International Youth Day.',
-          '19 August — World Humanitarian Day.',
-          '31 August — Summer Bank Holiday (England & Wales).',
-        ]},
+        { type: 'p', text: 'National Inclusion Week, 14 to 20 September.' },
+        { type: 'p', text: 'National Inclusion Week runs from 14 to 20 September. This year’s theme is “Build Trust. Navigate Change.” Inclusion isn’t a policy on a shelf; it’s whether people feel safe to be themselves at work and in study.' },
+        { type: 'h2', text: 'Small things build trust' },
+        { type: 'p', text: 'Use people’s names and pronouns correctly. Bring the quiet person into the conversation. Ask rather than assume. Give credit where it’s due. None of this costs anything, and it adds up to a place where everyone can do their best work.' },
+        { type: 'h2', text: 'Change is easier together' },
+        { type: 'p', text: 'New term, new rotas, new faces. If a change at work or in your study is unsettling you, say so. Your tutor can help you plan around it, and reasonable adjustments are always worth a confidential conversation.' },
         {
-          type: 'image', file: 'characters/Ben_Explaining.png', width: 60, height: 97,
+          type: 'image', file: 'characters/Ben_Encouraging.png', width: 60, height: 97,
           name: 'Ben Carter, mentor',
-          description: 'Illustration of Ben Carter, a CoreEd mentor, explaining something with a raised finger.',
+          description: 'Illustration of Ben Carter, a CoreEd mentor, giving an encouraging thumbs up.',
           caption: 'Illustration: Ben Carter, one of our mentors.',
         },
       ],
     },
     {
-      heading: '05. Safeguarding Team Update',
+      heading: '05. Your Next Step',
       blocks: [
-        { type: 'p', text: 'Know who to turn to, support is here all summer.' },
-        { type: 'p', text: 'Safeguarding is everyone’s responsibility, and the team is reachable over the summer break. Whether it’s about your own wellbeing, someone else’s safety, or a difficult time, please reach out. Speaking up early is always the right thing to do.' },
+        { type: 'p', text: 'Into the autumn with momentum.' },
+        { type: 'p', text: 'The new academic year is a natural point to check where you are and what comes next. If English or maths Functional Skills are still on your list, check with your coach what applies to you and plan the next step together. Whatever stage you’re at, they’re here to help you move forward.' },
+        { type: 'h2', text: 'Dates for your diary — September' },
+        { type: 'bullets', items: [
+          '8 September — International Literacy Day.',
+          '10 September — World Suicide Prevention Day.',
+          '14 to 20 September — National Inclusion Week.',
+          '18 September — Youth Mental Health Day.',
+          '23 September — International Day of Sign Languages.',
+          '25 September — Macmillan Coffee Morning.',
+        ]},
+        {
+          type: 'image', file: 'characters/Corrie_Thinking.png', width: 60, height: 90,
+          name: 'Corrie Patel, apprentice',
+          description: 'Illustration of Corrie Patel, a CoreEd apprentice, thinking about their next step.',
+          caption: 'Illustration: Corrie Patel, one of our apprentices.',
+        },
+      ],
+    },
+    {
+      heading: '06. Safeguarding Team Update',
+      blocks: [
+        { type: 'p', text: 'Know who to turn to this term.' },
+        { type: 'p', text: 'Safeguarding is everyone’s responsibility. Whether it’s about your own wellbeing, someone else’s safety, or a difficult time, please reach out. Speaking up early is always the right thing to do, and raising a concern does not put your apprenticeship at risk.' },
         { type: 'contact', name: 'Jeannette Adrian', role: 'Designated Safeguarding Lead (DSL) and Wellbeing Support', phone: '07557 093701', email: 'jeannette@CoreEd.co.uk' },
         { type: 'contact', name: 'Airam Neesa', role: 'Deputy Designated Safeguarding Lead', phone: '07912 342 367', email: 'airam@CoreEd.co.uk' },
       ],
     },
     {
-      heading: '06. Looking Out for One Another',
+      heading: '07. Looking Out for One Another',
       blocks: [
-        { type: 'p', text: 'Staying safe, online and off.' },
-        { type: 'p', text: 'Summer often means more time online. Part of keeping everyone safe is something called Prevent. Here’s what it means, and who to talk to if something doesn’t feel right.' },
+        { type: 'p', text: 'New term, new group chats, same care.' },
+        { type: 'p', text: 'September brings new cohorts, new chats and new feeds. Part of keeping everyone safe is something called Prevent. Here’s what it means, and who to talk to if something doesn’t feel right.' },
         { type: 'h2', text: 'Support, not suspicion' },
         { type: 'p', text: 'Prevent is part of safeguarding. It’s about helping anyone who might be at risk of being pulled towards extremism or hateful views, the same way we’d help with any other worry. It isn’t about getting anyone into trouble; it’s about getting the right support early.' },
-        { type: 'h2', text: 'Think before you share' },
-        { type: 'p', text: 'Not everything online is true or safe. If a post, message or account makes you uneasy, or pressures you to do or believe something, step back and talk to someone you trust. Keep your details private and be kind in the group chat.' },
+        { type: 'h2', text: 'Question what you see' },
+        { type: 'p', text: 'Not everything online is true or safe, and new group chats set their tone early. If a post, message or account makes you uneasy, or pressures you to do or believe something, step back and talk to someone you trust. Keep your details private and be kind in the chat.' },
         {
           type: 'link',
           before: 'Worried about something? You can speak to Jeannette or Airam (above), or contact the ACT Early support line on 0800 011 3764 or at ',
@@ -147,7 +177,7 @@ module.exports = {
     {
       heading: 'Final thoughts',
       blocks: [
-        { type: 'p', text: 'Enjoy the rest of your summer. Keep your momentum going, look after yourselves and each other, and do have your say in the survey too.' },
+        { type: 'p', text: 'A new year, a fresh start. Look after yourselves and each other, keep talking, and do have your say in the survey. Congratulations to July’s completers!' },
         { type: 'p', text: '— The CoreEd Team', bold: true },
         {
           type: 'image', file: 'characters/Mascot_Celebration.png', width: 90, height: 61,
@@ -158,7 +188,7 @@ module.exports = {
       ],
     },
     {
-      heading: '07. Support & Resources',
+      heading: '08. Support & Resources',
       blocks: [
         { type: 'h2', text: 'Study & next steps' },
         { type: 'bullets', items: [
@@ -166,19 +196,19 @@ module.exports = {
           'National Careers Service — free careers advice and a helpline (nationalcareers.service.gov.uk).',
           'GOV.UK Apprenticeships — how apprenticeships and assessment work (gov.uk).',
         ]},
-        { type: 'h2', text: 'Wellbeing & health' },
+        { type: 'h2', text: 'Inclusion & belonging' },
         { type: 'bullets', items: [
-          'NHS, menopause — symptoms, treatments and advice (nhs.uk).',
-          'Menopause information — support and stigma-busting resources (menopauseinfo.org).',
+          'Inclusive Employers — National Inclusion Week resources and ideas (inclusiveemployers.co.uk).',
+          'National Literacy Trust — free reading and writing support for all ages (literacytrust.org.uk).',
+          'Your CoreEd tutor — to arrange a reasonable adjustment or talk anything through.',
+        ]},
+        { type: 'h2', text: 'Wellbeing & mental health' },
+        { type: 'bullets', items: [
           'Samaritans — free, 24/7; call 116 123 in the UK.',
           'Shout — free 24/7 text support; text SHOUT to 85258.',
+          'HOPELINE247 (PAPYRUS) — for under-35s; call 0800 068 4141 or text 88247 (papyrus-uk.org).',
+          'stem4 — youth mental health resources and apps (stem4.org.uk).',
           'Mind — mental health advice and local services (mind.org.uk).',
-        ]},
-        { type: 'h2', text: 'Inclusion & learning' },
-        { type: 'bullets', items: [
-          'Dyspraxia Foundation — information and support (dyspraxiafoundation.org.uk).',
-          'British Dyslexia Association — guidance on dyscalculia and more (bdadyslexia.org.uk).',
-          'Your CoreEd tutor — to arrange a reasonable adjustment or talk anything through.',
         ]},
       ],
     },
