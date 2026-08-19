@@ -26,37 +26,18 @@ module.exports = {
         },
         { type: 'h2', text: 'In this issue' },
         { type: 'bullets', items: [
-          '01 — In Their Words',
-          '02 — Your Voice, Your Say',
-          '03 — Looking After You This Summer',
-          '04 — How Brains Work Differently',
-          '05 — Your Next Step',
-          '06 — Safeguarding Team Update',
-          '07 — Looking Out for One Another',
-          '08 — Support & Resources',
+          '01 — Your Voice, Your Say',
+          '02 — Looking After You This Summer',
+          '03 — How Brains Work Differently',
+          '04 — Your Next Step',
+          '05 — Safeguarding Team Update',
+          '06 — Looking Out for One Another',
+          '07 — Support & Resources',
         ]},
       ],
     },
     {
-      heading: '01. In Their Words',
-      blocks: [
-        { type: 'p', text: 'A learner’s feedback this month.' },
-        { type: 'p', text: 'A lovely note from a learner this month, after a session that helped them get back on track:' },
-        { type: 'callout', colour: 'blue', text: [
-          '“Thank you Sharon — found today’s session really great, and appreciate your support with getting me back on track. Feeling very motivated again!”',
-          '— A CoreEd learner',
-        ]},
-        { type: 'p', text: 'Thank you for sharing, and well done Sharon. If a session helps, or does not, tell your tutor. It is how we make the next one even better.' },
-        {
-          type: 'image', file: 'characters/Priya_Listening.png', width: 60, height: 108,
-          name: 'Priya Shah, assessor',
-          description: 'Illustration of Priya Shah, a CoreEd assessor, listening attentively.',
-          caption: 'Illustration: Priya Shah, one of our assessors.',
-        },
-      ],
-    },
-    {
-      heading: '02. Your Voice, Your Say',
+      heading: '01. Your Voice, Your Say',
       blocks: [
         { type: 'p', text: 'Speaking up, and the survey that shapes CoreEd.' },
         { type: 'p', text: '12 August is International Youth Day, a good reminder that your generation’s voice matters. Advocacy just means speaking up, for yourself and for others. At CoreEd, the simplest way to do that is the learner survey: we read every response, and it shapes what we do next. Not many of you have filled it in yet, so this is your nudge.' },
@@ -78,7 +59,7 @@ module.exports = {
       ],
     },
     {
-      heading: '03. Looking After You This Summer',
+      heading: '02. Looking After You This Summer',
       blocks: [
         { type: 'p', text: 'Including a conversation worth having.' },
         { type: 'p', text: 'Keep the summer basics going: water, sleep, fresh air and a bit of a break. This month we are also putting a plainer light on one topic that carries needless stigma.' },
@@ -95,7 +76,7 @@ module.exports = {
       ],
     },
     {
-      heading: '04. How Brains Work Differently',
+      heading: '03. How Brains Work Differently',
       blocks: [
         { type: 'p', text: 'Dyspraxia, dyscalculia and everyday support.' },
         { type: 'p', text: 'This month we’re raising awareness of dyspraxia and dyscalculia, two common ways of learning and thinking. Dyspraxia can affect coordination, organisation and planning; dyscalculia affects working with numbers. Neither has anything to do with how clever you are.' },
@@ -112,7 +93,7 @@ module.exports = {
       ],
     },
     {
-      heading: '05. Your Next Step',
+      heading: '04. Your Next Step',
       blocks: [
         { type: 'p', text: 'Keep your momentum going.' },
         { type: 'p', text: 'You’re already well into your apprenticeship, so the aim over summer is simple: keep your momentum up. If English or maths Functional Skills are still on your list, your tutor can talk you through what applies to you and plan the next steps together. Whatever stage you’re at, they’re here to help you move forward.' },
@@ -131,7 +112,7 @@ module.exports = {
       ],
     },
     {
-      heading: '06. Safeguarding Team Update',
+      heading: '05. Safeguarding Team Update',
       blocks: [
         { type: 'p', text: 'Know who to turn to, support is here all summer.' },
         { type: 'p', text: 'Safeguarding is everyone’s responsibility, and the team is reachable over the summer break. Whether it’s about your own wellbeing, someone else’s safety, or a difficult time, please reach out. Speaking up early is always the right thing to do.' },
@@ -140,7 +121,7 @@ module.exports = {
       ],
     },
     {
-      heading: '07. Looking Out for One Another',
+      heading: '06. Looking Out for One Another',
       blocks: [
         { type: 'p', text: 'Staying safe, online and off.' },
         { type: 'p', text: 'Summer often means more time online. Part of keeping everyone safe is something called Prevent. Here’s what it means, and who to talk to if something doesn’t feel right.' },
@@ -177,7 +158,7 @@ module.exports = {
       ],
     },
     {
-      heading: '08. Support & Resources',
+      heading: '07. Support & Resources',
       blocks: [
         { type: 'h2', text: 'Study & next steps' },
         { type: 'bullets', items: [
