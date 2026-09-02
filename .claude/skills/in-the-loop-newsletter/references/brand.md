@@ -50,9 +50,9 @@ Registered address: The Media Centre, 7 Northumberland Street, Huddersfield, HD1
 
 `assets/characters/` holds sixteen prepared PNGs with transparent backgrounds, already trimmed and upscaled for print:
 
-- **Corrie Patel** — apprentice. Happy, Proud, Thinking, Confused, Concerned.
-- **Ben Carter** — mentor. Encouraging, Explaining, Serious, Concerned.
-- **Priya Shah** — assessor. Supportive, Listening, Concerned.
+- **Corrie** — apprentice. Happy, Proud, Thinking, Confused, Concerned.
+- **Ben** — mentor. Encouraging, Explaining, Serious, Concerned.
+- **Priya** — assessor. Supportive, Listening, Concerned.
 - **Safety Guardian** — shield mascot. Welcome, Safety_Tip, Warning, Celebration.
 
 Match the character to the section: Corrie for learner experience, Ben for guidance and encouragement, Priya for assessment, the mascot for safeguarding and celebration. Placing a smiling character beside distressing content reads badly, so check the pairing.
