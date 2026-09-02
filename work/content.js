@@ -40,13 +40,13 @@ module.exports = {
     {
       heading: '01. In Their Words',
       blocks: [
-        { type: 'p', text: 'This space is yours.' },
-        { type: 'p', text: 'Each issue, this section carries a learner’s own words. We don’t have a quote to share this month, so instead, here’s the invitation: if a session helped, if something finally clicked, or if something needs to change, tell your tutor. With your permission, your words could open the October issue.' },
-        { type: 'p', text: 'Anything from a sentence to a few lines works, and you can stay anonymous if you prefer. What you say gets read, and it shapes how we teach.' },
+        { type: 'p', text: 'A pharmacy apprentice’s feedback this month.' },
+        { type: 'p', text: 'This month’s words come from a pharmacy apprentice who started on the 10-week bootcamp and is now working and studying in the sector:' },
         { type: 'callout', colour: 'blue', text: [
-          'Something worth sharing while we wait: seven learners completed their apprenticeship in July, six passes and one distinction, taking this academic year’s total to 39 completions. Of those 39, almost half, 46%, were awarded a distinction.',
-          '— July figures, CoreEd governance data',
+          '“I started with the 10-week pharmacy bootcamp, which gave me a great insight into what it would be like working in a pharmacy. My tutors, teachers and the staff at CoreEd have been especially supportive, and helped me at times when I found things a bit difficult. CoreEd helped me secure employment, which led me to start my apprenticeship. I feel very confident to be working in the pharmaceutical sector, and intend to continue developing my skills in pharmacy.”',
+          '— A CoreEd pharmacy apprentice',
         ]},
+        { type: 'p', text: 'Thank you for sharing. The wider picture backs it up: seven learners completed their apprenticeship in July, six passes and one distinction, taking this year’s total to 39 completions, almost half of them, 46%, distinctions. If you’d like your words to appear here, tell your tutor.' },
         {
           type: 'image', file: 'characters/Priya_Listening.png', width: 60, height: 108,
           name: 'Priya Shah, assessor',
