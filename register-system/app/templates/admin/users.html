@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Staff{% endblock %}
+{% block content %}
+<div class="row-between"><h1>Staff accounts</h1><a class="btn primary" href="{{ url_for('admin.user_new') }}">Add staff member</a></div>
+<form class="filters" method="get">
+  <select name="role"><option value="">All roles</option>{% for r, label in Role.LABELS.items() %}<option value="{{ r }}" {{ 'selected' if role == r }}>{{ label }}</option>{% endfor %}</select>
+  <button class="btn small">Filter</button>
+</form>
+<table class="table">
+  <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Last sign-in</th><th></th></tr></thead>
+  <tbody>
+  {% for u in users %}
+    <tr class="{{ '' if u.is_active else 'dim' }}">
+      <td>{{ u.name }}</td><td>{{ u.email }}</td><td>{{ u.role_label }}</td>
+      <td>{% if not u.active %}Deactivated{% elif not u.is_active %}Expired{% elif u.is_locked %}<span class="badge bad">Locked</span>{% else %}Active{% endif %}
+          {% if u.expires_at %}<div class="small muted">expires {{ u.expires_at|d }}</div>{% endif %}</td>
+      <td>{{ u.last_login_at|dt }}</td>
+      <td><a class="btn small" href="{{ url_for('admin.user_edit', user_id=u.id) }}">Manage</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Follow-up – {{ s.title }}{% endblock %}
+{% block content %}
+<h1>Follow-up: {{ s.title }}</h1>
+<p class="muted">{{ s.cohort.name }} ({{ s.cohort.course.title }}) · Tutor: {{ s.tutor.name if s.tutor else '' }} · Started {{ s.start_at|dt('%A %d %B %Y %H:%M') }}{% if s.location %} · {{ s.location }}{% endif %}</p>
+<table class="table">
+  <thead><tr><th>Learner</th><th>Phone</th><th>Email</th><th>Employer</th><th>Status</th><th></th></tr></thead>
+  <tbody>
+  {% for a in alerts %}
+    <tr>
+      <td>{{ a.learner.full_name }}</td>
+      <td>{% if a.learner.phone %}<a href="tel:{{ a.learner.phone|replace(' ','') }}">{{ a.learner.phone }}</a>{% endif %}</td>
+      <td>{% if a.learner.email %}<a href="mailto:{{ a.learner.email }}">{{ a.learner.email }}</a>{% endif %}</td>
+      <td class="small">{{ a.learner.employer_name or '' }}<div>{{ a.learner.employer_contact or '' }}</div></td>
+      <td>{{ a.status_label }}<div class="small">{{ a.outcome_label }}</div></td>
+      <td><a class="btn small" href="{{ url_for('pastoral.alert', alert_id=a.id) }}">{{ 'Log contact' if a.status != 'closed' and current_user.role != Role.INSPECTOR else 'View' }}</a></td>
+    </tr>
+  {% else %}<tr><td colspan="6" class="muted">No alerts for this session.</td></tr>{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

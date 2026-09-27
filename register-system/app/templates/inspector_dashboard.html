@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Inspection access{% endblock %}
+{% block content %}
+<h1>Inspection access</h1>
+<div class="card">
+  <p>You have read-only access{% if current_user.expires_at %} until {{ current_user.expires_at|dt }}{% endif %}. Nothing can be changed from this account, and your access is recorded in the audit trail.</p>
+  <ul>
+    <li><a href="{{ url_for('reports.monthly') }}">Monthly attendance reports</a>: by course, cohort, tutor and learner, with register timeliness and pastoral follow-up.</li>
+    <li><a href="{{ url_for('learners.list_learners', show='all') }}">Learner records</a>: each learner's attendance history, tutor and cohort history, and pastoral contacts.</li>
+    <li><a href="{{ url_for('pastoral.alerts', show='all') }}">Pastoral follow-up log</a>: every non-attendance alert and the contact made.</li>
+    <li><a href="{{ url_for('admin.audit_log') }}">Audit trail</a>: every change, who made it and when.</li>
+  </ul>
+</div>
+{% endblock %}

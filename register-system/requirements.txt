@@ -1,0 +1,9 @@
+Flask>=3.0,<4
+Flask-SQLAlchemy>=3.1,<4
+Flask-Login>=0.6.3,<1
+Flask-WTF>=1.2,<2
+SQLAlchemy>=2.0,<3
+psycopg[binary]>=3.1,<4   # PostgreSQL driver for production
+gunicorn>=22,<24
+tzdata                     # timezone data on minimal containers
+pytest>=8                  # tests only

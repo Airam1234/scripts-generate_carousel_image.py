@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "macros.html" import csrf with context %}
+{% block title %}Courses{% endblock %}
+{% block content %}
+<h1>Apprenticeship standards</h1>
+<p class="muted">Add the IfATE standard reference (e.g. ST0070) for each course so reports can be matched to your ILR.</p>
+<table class="table">
+  <thead><tr><th>Name</th><th>Level</th><th>Standard ref</th><th>Active</th><th></th></tr></thead>
+  <tbody>
+  {% for c in courses %}{% set f = 'course-' ~ c.id %}
+    <tr>
+      <td><input form="{{ f }}" name="name" value="{{ c.name }}" required></td>
+      <td><input form="{{ f }}" type="number" name="level" min="1" max="7" value="{{ c.level }}" class="w-num"></td>
+      <td><input form="{{ f }}" name="standard_ref" value="{{ c.standard_ref or '' }}" class="w-ref"></td>
+      <td><input form="{{ f }}" type="checkbox" name="active" {{ 'checked' if c.active }}></td>
+      <td><form id="{{ f }}" method="post">{{ csrf() }}<input type="hidden" name="course_id" value="{{ c.id }}"><button class="btn small">Save</button></form></td>
+    </tr>
+  {% endfor %}
+    <tr>
+      <td><input form="course-new" name="name" placeholder="New course name" required></td>
+      <td><input form="course-new" type="number" name="level" min="1" max="7" class="w-num" required></td>
+      <td><input form="course-new" name="standard_ref" class="w-ref"></td><td></td>
+      <td><form id="course-new" method="post">{{ csrf() }}<button class="btn small primary">Add</button></form></td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

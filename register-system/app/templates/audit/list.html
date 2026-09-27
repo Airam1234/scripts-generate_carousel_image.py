@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Audit trail{% endblock %}
+{% block content %}
+<div class="row-between"><h1>Audit trail</h1>
+  <a class="btn" href="{{ url_for('admin.audit_csv', **args) }}">Export CSV</a></div>
+<p class="muted">Every sign-in, change to a record, register mark and amendment. Entries cannot be edited or deleted.</p>
+<form class="filters" method="get">
+  <select name="entity_type"><option value="">All record types</option>{% for t in entity_types %}<option {{ 'selected' if request.args.get('entity_type') == t }}>{{ t }}</option>{% endfor %}</select>
+  <select name="user_id"><option value="">All users</option>{% for u in users %}<option value="{{ u.id }}" {{ 'selected' if request.args.get('user_id') == u.id|string }}>{{ u.name }}</option>{% endfor %}</select>
+  <input name="action" placeholder="Action e.g. attendance" value="{{ request.args.get('action','') }}">
+  <label class="inline-label">From <input type="date" name="from" value="{{ request.args.get('from','') }}"></label>
+  <label class="inline-label">To <input type="date" name="to" value="{{ request.args.get('to','') }}"></label>
+  {% if request.args.get('entity_id') %}<input type="hidden" name="entity_id" value="{{ request.args.get('entity_id') }}">{% endif %}
+  <button class="btn small">Filter</button>
+</form>
+<table class="table">
+  <thead><tr><th>When</th><th>Who</th><th>Action</th><th>Summary</th><th>Details</th></tr></thead>
+  <tbody>
+  {% for e in entries.items %}
+    <tr>
+      <td class="nowrap">{{ e.at|dt('%d/%m/%Y %H:%M:%S') }}</td>
+      <td>{{ e.user_label }}<div class="small muted">{{ e.ip_address or '' }}</div></td>
+      <td><code>{{ e.action }}</code><div class="small muted">{{ e.entity_type or '' }} {{ e.entity_id or '' }}</div></td>
+      <td>{{ e.summary }}</td>
+      <td class="small">{% for k, v in e.details_dict.items() %}<div><strong>{{ k }}</strong>: {{ v }}</div>{% endfor %}</td>
+    </tr>
+  {% else %}<tr><td colspan="5" class="muted">No entries.</td></tr>{% endfor %}
+  </tbody>
+</table>
+<div class="pager">
+  {% if entries.has_prev %}<a href="{{ url_for('admin.audit_log', page=entries.prev_num, **args) }}">← Newer</a>{% endif %}
+  <span class="muted">Page {{ entries.page }} of {{ entries.pages or 1 }}</span>
+  {% if entries.has_next %}<a href="{{ url_for('admin.audit_log', page=entries.next_num, **args) }}">Older →</a>{% endif %}
+</div>
+{% endblock %}

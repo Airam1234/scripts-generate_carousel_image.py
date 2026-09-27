@@ -9,3 +9,7 @@ __pycache__/
 
 # Environment
 .env
+
+# Register system
+*.db
+.pytest_cache/

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from "macros.html" import session_table, pct_badge with context %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h1>Hello {{ current_user.name.split(' ')[0] }}</h1>
+<div class="stats">
+  <div class="stat"><div class="num">{{ todays|length }}</div><div>sessions today</div></div>
+  <div class="stat {{ 'warn' if outstanding else '' }}"><div class="num">{{ outstanding|length }}</div><div>registers outstanding</div></div>
+  <div class="stat"><div class="num">{{ learner_count }}</div><div>learners assigned to you</div></div>
+  <div class="stat"><div class="num">{{ pct_badge(summary.overall.pct, summary.threshold) }}</div><div>attendance · {{ summary.label }}</div></div>
+</div>
+
+<section class="card">
+  <h2>Today</h2>
+  <p class="small muted">Take the register as soon as the session starts. Anyone not marked Present or Late {{ config.PASTORAL_GRACE_MINUTES }} minutes after the start is sent to Pastoral Support automatically.</p>
+  {{ session_table(todays) }}
+</section>
+
+{% if outstanding %}
+<section class="card">
+  <h2>Registers outstanding</h2>
+  {{ session_table(outstanding) }}
+</section>
+{% endif %}
+
+<section class="card">
+  <div class="row-between"><h2>Next 14 days</h2><a class="btn small" href="{{ url_for('sessions.new') }}">Add session</a></div>
+  {{ session_table(upcoming) }}
+</section>
+
+<section class="card">
+  <h2>My cohorts</h2>
+  <ul class="plain">{% for c in cohorts %}<li><a href="{{ url_for('cohorts.detail', cohort_id=c.id) }}">{{ c.name }}</a> <span class="muted">{{ c.course.title }}</span></li>{% else %}<li class="muted">No cohorts assigned yet.</li>{% endfor %}</ul>
+</section>
+{% endblock %}

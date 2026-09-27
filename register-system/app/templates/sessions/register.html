@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% from "macros.html" import csrf, status_badge, session_state with context %}
+{% block title %}Register – {{ s.title }}{% endblock %}
+{% block content %}
+<div class="row-between">
+  <div>
+    <h1>{{ s.title }}</h1>
+    <p class="muted">{{ s.type_label }} · {{ s.cohort.name }} ({{ s.cohort.course.title }}) · Tutor: {{ s.tutor.name if s.tutor else 'unassigned' }}</p>
+    <p><strong>{{ s.start_at|dt('%A %d %B %Y, %H:%M') }}–{{ s.end_at|dt('%H:%M') }}</strong> · {{ s.delivery_mode|replace('_',' ')|capitalize }}{% if s.location %} · {{ s.location }}{% endif %} {{ session_state(s) }}</p>
+    {% if s.schedule_override_reason %}<p class="small">Scheduled outside the normal window: {{ s.schedule_override_reason }}</p>{% endif %}
+    {% if s.is_cancelled %}<p class="flash flash-info">Cancelled {{ s.cancelled_at|dt }}: {{ s.cancel_reason }}</p>{% endif %}
+  </div>
+  <div class="actions">
+    {% if current_user.role in (Role.ADMIN, Role.PASTORAL, Role.INSPECTOR) and alerts %}<a class="btn" href="{{ url_for('pastoral.session_alerts', session_id=s.id) }}">Pastoral follow-up ({{ alerts|length }})</a>{% endif %}
+    {% if state.can_manage %}<a class="btn" href="{{ url_for('sessions.edit', session_id=s.id) }}">Edit session</a>{% endif %}
+  </div>
+</div>
+
+{% if not s.is_cancelled %}
+<div class="pastoral-timer {{ 'done' if s.pastoral_processed_at else '' }}" data-due="{{ state.alert_due_at.isoformat() }}" data-now="{{ now.isoformat() }}">
+  {% if s.pastoral_processed_at %}
+    Pastoral Support were sent absentees at {{ s.pastoral_processed_at|dt('%H:%M on %d/%m/%Y') }}. Marking someone Present or Late now closes their alert; marking someone Absent sends a new alert.
+  {% else %}
+    Learners not marked Present or Late by <strong>{{ state.alert_due_at|dt('%H:%M') }}</strong> will be sent to Pastoral Support. <span class="countdown"></span>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if state.locked_reason %}<p class="flash flash-info">{{ state.locked_reason }}</p>{% endif %}
+
+<form method="post" class="card" id="register-form">
+  {{ csrf() }}
+  {% if state.editable %}
+  <div class="row-between">
+    <div class="small muted">{{ learners|length }} learner(s) expected. Tap a status for each learner, then save.</div>
+    <button type="button" class="btn small" data-mark-all="present">Mark all unmarked as present</button>
+  </div>
+  {% endif %}
+  <table class="table register">
+    <thead><tr><th>Learner</th><th>Mark</th><th>Note</th><th>Recorded</th></tr></thead>
+    <tbody>
+    {% for l in learners %}{% set m = marks.get(l.id) %}
+      <tr>
+        <td><strong>{{ l.full_name }}</strong>{% if l.is_archived %} <span class="small muted">(left {{ l.leave_date|d }})</span>{% endif %}
+          {% if alerts.get(l.id) %}<div class="small">Pastoral: {{ alerts[l.id].status_label }}{% if alerts[l.id].outcome %} – {{ alerts[l.id].outcome_label }}{% endif %}</div>{% endif %}</td>
+        <td>
+          {% if state.editable %}
+          <div class="seg" role="radiogroup" aria-label="Attendance for {{ l.full_name }}">
+            {% for k, label in statuses.items() %}
+              <label class="seg-opt st-{{ k }}"><input type="radio" name="status_{{ l.id }}" value="{{ k }}" {{ 'checked' if m and m.status == k and not m.auto_recorded }}><span>{{ label }}</span></label>
+            {% endfor %}
+          </div>
+          <label class="late-mins small">Minutes late <input type="number" name="late_{{ l.id }}" min="0" max="{{ s.duration_minutes }}" value="{{ m.minutes_late if m and m.minutes_late is not none else '' }}" class="w-num"></label>
+          {% if m and m.auto_recorded %}<div class="small bad-text">Recorded absent by the system (not marked within {{ config.PASTORAL_GRACE_MINUTES }} min)</div>{% endif %}
+          {% else %}
+            {% if m %}{{ status_badge(m.status) }}{% if m.minutes_late %} {{ m.minutes_late }} min{% endif %}{% else %}<span class="muted">Not marked</span>{% endif %}
+          {% endif %}
+        </td>
+        <td>{% if state.editable %}<input name="note_{{ l.id }}" maxlength="500" value="{{ m.note if m and m.note and not m.auto_recorded else '' }}">{% else %}<span class="small">{{ m.note if m else '' }}</span>{% endif %}</td>
+        <td class="small">{% if m %}{{ m.marked_by.name if m.marked_by else 'System' }}<div class="muted">{{ m.marked_at|dt('%d/%m %H:%M') }}</div>{% endif %}</td>
+      </tr>
+    {% else %}
+      <tr><td colspan="4" class="muted">No learners were placed in this cohort at the time of this session.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% if state.editable and learners %}
+    {% if s.register_completed_at %}
+      <label>Reason for amendment (required when changing a submitted register) <input name="amend_reason" maxlength="500"></label>
+    {% endif %}
+    <button class="btn primary">Save register</button>
+  {% endif %}
+</form>
+
+{% if state.can_manage %}
+<details class="card">
+  <summary>Cancel this session</summary>
+  <form method="post" action="{{ url_for('sessions.cancel', session_id=s.id) }}" class="inline-form">
+    {{ csrf() }}<input name="cancel_reason" required placeholder="Reason for cancellation">
+    <button class="btn danger">Cancel session</button>
+  </form>
+</details>
+{% endif %}
+{% endblock %}

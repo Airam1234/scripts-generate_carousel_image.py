@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Learners{% endblock %}
+{% block content %}
+<div class="row-between"><h1>Learners</h1>{% if current_user.role == Role.ADMIN %}<a class="btn primary" href="{{ url_for('learners.new') }}">Add learner</a>{% endif %}</div>
+<form class="filters" method="get">
+  <input name="q" placeholder="Name, ULN or email" value="{{ search }}">
+  <select name="course_id"><option value="">All courses</option>{% for c in courses %}<option value="{{ c.id }}" {{ 'selected' if request.args.get('course_id') == c.id|string }}>{{ c.title }}</option>{% endfor %}</select>
+  <select name="cohort_id"><option value="">All cohorts</option>{% for c in cohorts %}<option value="{{ c.id }}" {{ 'selected' if request.args.get('cohort_id') == c.id|string }}>{{ c.name }}</option>{% endfor %}</select>
+  {% if current_user.role != Role.TUTOR %}<select name="tutor_id"><option value="">All tutors</option>{% for t in tutors %}<option value="{{ t.id }}" {{ 'selected' if request.args.get('tutor_id') == t.id|string }}>{{ t.name }}</option>{% endfor %}</select>{% endif %}
+  <select name="show"><option value="current">Current learners</option><option value="archived" {{ 'selected' if show == 'archived' }}>Archived (leavers)</option><option value="all" {{ 'selected' if show == 'all' }}>All</option></select>
+  <button class="btn small">Search</button>
+</form>
+<table class="table">
+  <thead><tr><th>Name</th><th>ULN</th><th>Course</th><th>Cohort</th><th>Tutor</th><th>Status</th></tr></thead>
+  <tbody>
+  {% for l in learners %}
+    <tr class="{{ 'dim' if l.is_archived }}"><td><a href="{{ url_for('learners.detail', learner_id=l.id) }}">{{ l.last_name }}, {{ l.first_name }}</a></td>
+      <td>{{ l.uln or '' }}</td><td>{{ l.cohort.course.title }}</td><td>{{ l.cohort.name }}</td>
+      <td>{{ l.tutor.name if l.tutor else '' }}</td><td>{{ l.status_label }}</td></tr>
+  {% else %}<tr><td colspan="6" class="muted">No learners found.</td></tr>{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "macros.html" import csrf with context %}
+{% block title %}{{ 'Edit' if user else 'Add' }} staff{% endblock %}
+{% block content %}
+<h1>{{ user.name if user else 'Add staff member' }}</h1>
+<div class="grid2">
+<form method="post" class="card">
+  {{ csrf() }}
+  <label>Full name <input name="name" required value="{{ user.name if user else request.form.get('name','') }}"></label>
+  {% if user %}<p><strong>Email:</strong> {{ user.email }}</p>
+  {% else %}<label>Email <input type="email" name="email" required value="{{ request.form.get('email','') }}"></label>{% endif %}
+  <label>Role
+    <select name="role" required>
+      {% for r, label in Role.LABELS.items() %}<option value="{{ r }}" {{ 'selected' if (user and user.role == r) or (not user and r == Role.TUTOR) }}>{{ label }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Access expires (optional – use for inspectors) <input type="date" name="expires_at" value="{{ user.expires_at.strftime('%Y-%m-%d') if user and user.expires_at else '' }}"></label>
+  {% if user %}<label class="check"><input type="checkbox" name="active" {{ 'checked' if user.active }}> Account active</label>{% endif %}
+  <button class="btn primary">{{ 'Save' if user else 'Create account' }}</button>
+  {% if not user %}<p class="small muted">A one-time temporary password is generated; the user must change it at first sign-in.</p>{% endif %}
+</form>
+{% if user %}
+<div class="card">
+  <h2>Account security</h2>
+  <p>Last sign-in: {{ user.last_login_at|dt or 'never' }}</p>
+  {% if user.is_locked %}<p class="badge bad">Locked until {{ user.locked_until|dt }}</p>
+  <form method="post">{{ csrf() }}<input type="hidden" name="action" value="unlock"><button class="btn">Unlock account</button></form>{% endif %}
+  <form method="post" data-confirm="Reset this user's password? Their current password will stop working.">{{ csrf() }}<input type="hidden" name="action" value="reset_password"><button class="btn">Reset password</button></form>
+  {% if user.role == Role.TUTOR %}
+  <h2>Workload</h2>
+  <p>{{ cohorts|length }} active cohort(s), {{ upcoming }} upcoming session(s).</p>
+  <ul class="plain">{% for c in cohorts %}<li><a href="{{ url_for('cohorts.detail', cohort_id=c.id) }}">{{ c.name }}</a></li>{% endfor %}</ul>
+  {% if cohorts %}<p class="small muted">Before deactivating a tutor, move their cohorts to another tutor from each cohort's Edit page – learners and future sessions move with an audit trail.</p>{% endif %}
+  {% endif %}
+  <p><a href="{{ url_for('admin.audit_log', user_id=user.id) }}">Actions by this user</a> · <a href="{{ url_for('admin.audit_log', entity_type='users', entity_id=user.id) }}">Changes to this account</a></p>
+</div>
+{% endif %}
+</div>
+{% endblock %}

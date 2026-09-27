@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% from "macros.html" import csrf with context %}
+{% block title %}{{ 'Edit' if cohort else 'Add' }} cohort{% endblock %}
+{% block content %}
+<h1>{{ 'Edit ' ~ cohort.name if cohort else 'Add cohort' }}</h1>
+<form method="post" class="card narrow">
+  {{ csrf() }}
+  <label>Cohort name <input name="name" required value="{{ cohort.name if cohort else request.form.get('name','') }}" placeholder="e.g. Business Admin L3 – Sept 2026"></label>
+  <label>Course
+    <select name="course_id" required>{% for c in courses %}<option value="{{ c.id }}" {{ 'selected' if cohort and cohort.course_id == c.id }}>{{ c.title }}</option>{% endfor %}</select>
+  </label>
+  <label>Start date (first day of learning – week 3 or 4)
+    <input type="date" name="start_date" required value="{{ cohort.start_date.isoformat() if cohort else request.form.get('start_date','') }}">
+  </label>
+  <label>Tutor
+    <select name="tutor_id"><option value="">— unassigned —</option>{% for t in tutors %}<option value="{{ t.id }}" {{ 'selected' if cohort and cohort.tutor_id == t.id }}>{{ t.name }}</option>{% endfor %}</select>
+  </label>
+  {% if cohort %}
+  <fieldset>
+    <legend>If you change the tutor</legend>
+    <label>Reason for change <input name="reason" placeholder="e.g. Tutor left, caseload rebalancing"></label>
+    <label class="check"><input type="checkbox" name="move_learners" checked> Move learners who are with the current tutor</label>
+    <label class="check"><input type="checkbox" name="move_sessions" checked> Move future sessions to the new tutor</label>
+    <p class="small muted">Previous assignments are kept in each learner's history.</p>
+  </fieldset>
+  <label class="check"><input type="checkbox" name="active" {{ 'checked' if cohort.active }}> Cohort active</label>
+  {% endif %}
+  <button class="btn primary">Save</button>
+</form>
+{% endblock %}

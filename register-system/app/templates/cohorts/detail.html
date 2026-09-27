@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "macros.html" import session_table with context %}
+{% block title %}{{ cohort.name }}{% endblock %}
+{% block content %}
+<div class="row-between">
+  <div><h1>{{ cohort.name }}</h1>
+    <p class="muted">{{ cohort.course.title }}{% if cohort.course.standard_ref %} ({{ cohort.course.standard_ref }}){% endif %} · Tutor: {{ cohort.tutor.name if cohort.tutor else 'unassigned' }} · Started {{ cohort.start_date|d }}{% if not cohort.active %} · <strong>Closed</strong>{% endif %}</p></div>
+  <div class="actions">
+    {% if current_user.role == Role.ADMIN %}
+      <a class="btn" href="{{ url_for('cohorts.edit', cohort_id=cohort.id) }}">Edit / change tutor</a>
+      <a class="btn" href="{{ url_for('learners.new', cohort_id=cohort.id) }}">Add learner</a>
+      <a class="btn" href="{{ url_for('sessions.bulk_monthly') }}">Schedule monthly sessions</a>
+    {% endif %}
+    {% if current_user.role in (Role.ADMIN, Role.TUTOR) %}<a class="btn" href="{{ url_for('sessions.new', cohort_id=cohort.id) }}">Add session</a>{% endif %}
+    <a class="btn" href="{{ url_for('reports.monthly', cohort_id=cohort.id) }}">Report</a>
+  </div>
+</div>
+<section class="card">
+  <h2>Current learners ({{ cohort.current_learners|length }})</h2>
+  <table class="table">
+    <thead><tr><th>Name</th><th>ULN</th><th>Tutor</th><th>Start</th><th>Status</th></tr></thead>
+    <tbody>{% for l in cohort.current_learners %}
+      <tr><td><a href="{{ url_for('learners.detail', learner_id=l.id) }}">{{ l.full_name }}</a></td><td>{{ l.uln or '' }}</td>
+        <td>{{ l.tutor.name if l.tutor else '' }}</td><td>{{ l.start_date|d }}</td><td>{{ l.status_label }}</td></tr>
+    {% else %}<tr><td colspan="5" class="muted">No learners yet.</td></tr>{% endfor %}</tbody>
+  </table>
+</section>
+<section class="card"><h2>Sessions</h2>{{ session_table(sessions, show_cohort=False) }}</section>
+<section class="card">
+  <h2>Placement history</h2>
+  <table class="table">
+    <thead><tr><th>Learner</th><th>Tutor</th><th>From</th><th>To</th><th>Reason</th><th>By</th></tr></thead>
+    <tbody>{% for a in history %}
+      <tr><td>{{ a.learner.full_name }}</td><td>{{ a.tutor.name if a.tutor else '' }}</td><td>{{ a.assigned_at|dt }}</td>
+        <td>{{ a.ended_at|dt or 'current' }}</td><td>{{ a.reason or '' }}</td><td>{{ a.assigned_by.name if a.assigned_by else '' }}</td></tr>
+    {% endfor %}</tbody>
+  </table>
+</section>
+{% endblock %}

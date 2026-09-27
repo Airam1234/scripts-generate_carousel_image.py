@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% from "macros.html" import session_table with context %}
+{% block title %}Sessions{% endblock %}
+{% block content %}
+<div class="row-between">
+  <h1>Sessions</h1>
+  <div class="actions">
+    <a class="btn primary" href="{{ url_for('sessions.new') }}">Add session</a>
+    {% if current_user.role == Role.ADMIN %}<a class="btn" href="{{ url_for('sessions.bulk_monthly') }}">Schedule monthly sessions</a>{% endif %}
+  </div>
+</div>
+<form class="filters" method="get">
+  <a class="btn small" href="{{ url_for('sessions.list_sessions', month=prev_month) }}">←</a>
+  <input type="month" name="month" value="{{ month_value }}">
+  <a class="btn small" href="{{ url_for('sessions.list_sessions', month=next_month) }}">→</a>
+  <select name="type"><option value="">All types</option>{% for k, label in SessionType.LABELS.items() %}<option value="{{ k }}" {{ 'selected' if stype == k }}>{{ label }}</option>{% endfor %}</select>
+  <select name="cohort_id"><option value="">All cohorts</option>{% for c in cohorts %}<option value="{{ c.id }}" {{ 'selected' if request.args.get('cohort_id') == c.id|string }}>{{ c.name }}</option>{% endfor %}</select>
+  {% if current_user.role == Role.ADMIN %}<select name="tutor_id"><option value="">All tutors</option>{% for t in tutors %}<option value="{{ t.id }}" {{ 'selected' if request.args.get('tutor_id') == t.id|string }}>{{ t.name }}</option>{% endfor %}</select>{% endif %}
+  <button class="btn small">Show</button>
+</form>
+<p class="small muted">Delivery calendar: first day of learning for new starts in weeks 3–4 (15th–28th) · monthly sessions in week 1 (1st–7th) · additional sessions any time.</p>
+{{ session_table(sessions) }}
+{% endblock %}

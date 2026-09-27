@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% from "macros.html" import csrf with context %}
+{% block title %}Reassign {{ learner.full_name }}{% endblock %}
+{% block content %}
+<h1>Reassign {{ learner.full_name }}</h1>
+<form method="post" class="card narrow">
+  {{ csrf() }}
+  <p>Currently with <strong>{{ learner.tutor.name if learner.tutor else 'no tutor' }}</strong> in <strong>{{ learner.cohort.name }}</strong>.</p>
+  <label>New tutor
+    <select name="tutor_id" required><option value="">Choose…</option>{% for t in tutors %}<option value="{{ t.id }}" {{ 'selected' if t.id == learner.tutor_id }}>{{ t.name }}</option>{% endfor %}</select>
+  </label>
+  <label>Cohort
+    <select name="cohort_id" required>{% for c in cohorts %}<option value="{{ c.id }}" {{ 'selected' if c.id == learner.cohort_id }}>{{ c.name }} ({{ c.tutor.name if c.tutor else 'no tutor' }})</option>{% endfor %}</select>
+  </label>
+  <label>Effective date <input type="date" name="effective_date" required value="{{ now.date().isoformat() }}"></label>
+  <label>Reason <textarea name="reason" required rows="3" placeholder="e.g. Tutor caseload rebalancing; learner request; moved to a later cohort after break in learning"></textarea></label>
+  <p class="small muted">The previous assignment is closed, not overwritten. Past registers keep the tutor who marked them.</p>
+  <button class="btn primary">Reassign</button>
+</form>
+{% endblock %}

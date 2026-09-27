@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% from "macros.html" import csrf with context %}
+{% block title %}Sign in{% endblock %}
+{% block content %}
+<div class="card narrow">
+  <h1>Sign in</h1>
+  <form method="post" autocomplete="on">
+    {{ csrf() }}
+    <label>Email <input type="email" name="email" required autofocus autocomplete="username"></label>
+    <label>Password <input type="password" name="password" required autocomplete="current-password"></label>
+    <button class="btn primary">Sign in</button>
+  </form>
+  <p class="small muted">This system holds personal data about learners. Access is logged. Forgotten your password? Ask an administrator to reset it.</p>
+</div>
+{% endblock %}
